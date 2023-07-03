@@ -1,2 +1,1 @@
-# pma-website
-Website for Picturing Mexican America using ReactJS and Tailwind CSS
+Website for Picturing Mexican America with ReactJS and Tailwind CSS
