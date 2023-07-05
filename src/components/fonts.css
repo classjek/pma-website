@@ -1,0 +1,9 @@
+@font-face{
+    font-family: 'Canela';
+    src: url('../../fonts/Canela-Regular.otf') format('opentype');
+}
+
+@font-face{
+    font-family: 'Avenir';
+    src: url('../../fonts/AvenirNextLTPro-Regular.otf') format('opentype');
+}
