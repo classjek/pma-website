@@ -10,6 +10,8 @@ module.exports = {
       textColor: ['hover', 'focus'],
       colors: {
         'pma-orange': 'rgb(237, 106, 68)',
+        'pma-green': 'rgb(31, 53, 51)',
+        'pma-dark-orange': 'rgb(138, 70, 21)',
       },
     },
   },
