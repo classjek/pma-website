@@ -9,7 +9,7 @@ export const Navbar = () => {
         <img src='/Logo.png' alt="Logo" className='h-auto w-auto max-h-14' />
       </Link>
       <ul className='flex items-center justify-between px-8'>
-        <CustomLink to='/' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>ABOUT</CustomLink>
+        <CustomLink to='/about2' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>ABOUT</CustomLink>
         <CustomLink to='/stories' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>STORIES</CustomLink>
         <CustomLink to='/misterras' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>MIS TERRAS</CustomLink>
         <CustomLink to='/laselfie' className='px-10 font-font-avenir avenir text-base hover:text-gray-500 focus:text-pma-orange'>LA SELFIE</CustomLink>
