@@ -17,6 +17,13 @@ module.exports = {
       minWidth: {
         400: '400px',
       },
+      spacing: {
+        '27': '7.5rem',
+        '38': '9.25rem',
+      },
+      height: {
+        '116': '28.5rem',
+      },
     },
   },
   plugins: [],
