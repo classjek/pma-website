@@ -6,7 +6,7 @@ export const Navbar = () => {
   return (
     <nav className='flex justify-between bg-white'>
       <Link to='/' className='text-white font-canela px-3 py-4'>
-        <img src='/Logo.png' alt="Logo" className='h-auto w-auto max-h-14' />
+        <img src='/Logo.png' alt="Logo" className='h-auto w-auto min-w-max max-h-14' />
       </Link>
       <ul className='flex items-center justify-between px-8'>
         <CustomLink to='/about2' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>ABOUT</CustomLink>
