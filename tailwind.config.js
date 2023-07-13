@@ -24,6 +24,10 @@ module.exports = {
       height: {
         '116': '28.5rem',
       },
+      maxWidth: {
+        'smm': '22rem',
+        'xxs': '16rem',
+      },
     },
   },
   plugins: [],

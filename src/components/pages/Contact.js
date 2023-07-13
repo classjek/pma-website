@@ -3,8 +3,8 @@ import ContactForm from '../ContactForm'
 
 const Contact = () => {
   return (
-    <div className='grid grid-cols-3 lg:grid-cols-9 mx-auto mt-8 mb-6 px-8'>
-      <div className='col-span-4 mx-auto'>
+    <div className='grid grid-cols-5 lg:grid-cols-11 mx-auto mt-8 mb-6 px-0 md:px-8 lg:px-16'>
+      <div className='col-span-5 mx-auto'>
           <h1 className='font-canela text-3xl mb-3'>We'd like to hear from you</h1>
           <div className='font-avenir text-s grid grid-cols-2 gap-x-12 mb-4'>
               <p>General Inquiries</p>
@@ -21,14 +21,14 @@ const Contact = () => {
       <div className='col-span-1 mx-auto lg:block hidden'>
         <h1 className='font-avenir mt-10'>-OR-</h1>
       </div>
-      <div className='col-span-4 mx-auto mt-10 lg:mt-0'>
+      <div className='col-span-5 mx-auto mt-10 lg:mt-0'>
         <h1 className='font-canela text-3xl mb-3'>Contact Us</h1>
         <ContactForm />
-        <div>
-          <a href='https://www.instagram.com/picturingmexicanamerica'><img src='/icons/instagram_black.svg' alt='' classname='text-black'/></a>
-          <a href='https://www.facebook.com/picturingmexicanamerica'><img src='/icons/youtube.svg' alt='' className='text-white'/></a>
-          <a href='https://www.youtube.com/channel/UCeuIC2BpuyY0yTau7OCwvCA'><img src='/icons/facebook.svg' alt='' classname='text-white'/></a>
-          <a href='https://www.twitter.com/picturingmexam?lang=en'><img src='/icons/twitter.svg' alt='' classname='text-white'/></a>
+        <div className='flex space-x-4 mt-3'>
+          <a href='https://www.instagram.com/picturingmexicanamerica'><img src='/icons/instagram2.svg' alt='' classname='text-black'/></a>
+          <a href='https://www.facebook.com/picturingmexicanamerica'><img src='/icons/youtube2.svg' alt='' className='text-white'/></a>
+          <a href='https://www.youtube.com/channel/UCeuIC2BpuyY0yTau7OCwvCA'><img src='/icons/facebook2.svg' alt='' classname='text-white'/></a>
+          <a href='https://www.twitter.com/picturingmexam?lang=en'><img src='/icons/twitter2.svg' alt='' classname='text-white'/></a>
         </div>
       </div>
     </div>

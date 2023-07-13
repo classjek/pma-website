@@ -8,13 +8,13 @@ export const Navbar = () => {
       <Link to='/' className='text-white font-canela px-3 py-4 flex-shrink-0'>
         <img src='/Logo.png' alt="Logo" className='h-auto w-auto min-w-max max-h-14' />
       </Link>
-      <ul className='flex items-center justify-between px-8'>
-        <CustomLink to='/about2' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>ABOUT</CustomLink>
-        <CustomLink to='/stories' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>STORIES</CustomLink>
-        <CustomLink to='/misterras' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>MIS TERRAS</CustomLink>
-        <CustomLink to='/laselfie' className='px-10 font-font-avenir avenir text-base hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>LA SELFIE</CustomLink>
-        <CustomLink to='/education' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>EDUCATION</CustomLink>
-        <CustomLink to='/contact' className='px-10 font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>CONTACT</CustomLink>
+      <ul className='flex items-center justify-between mr-4 md:mr-6 lg:mr-10 px-2 lg:px-8 space-x-2 sm:space-x-3 md:space-x-5 lg:space-x-16'>
+        <CustomLink to='/about2' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>ABOUT</CustomLink>
+        <CustomLink to='/stories' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>STORIES</CustomLink>
+        <CustomLink to='/misterras' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>MIS TERRAS</CustomLink>
+        <CustomLink to='/laselfie' className='font-avenir avenir text-base hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>LA SELFIE</CustomLink>
+        <CustomLink to='/education' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>EDUCATION</CustomLink>
+        <CustomLink to='/contact' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>CONTACT</CustomLink>
       </ul>
     </nav>
   )
