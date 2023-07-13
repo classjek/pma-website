@@ -1,21 +1,26 @@
 import React from 'react';
 import emailjs from '@emailjs/browser';
 
-function sendEmail(e){
+function sendEmail(e, afterFormSubmit){
     e.preventDefault();
 
     emailjs.sendForm('gmail', 'email_template', e.target, 'Ps1VgVOc4a0ovJAyn')
       .then((result) => {
           console.log(result.text);
+          afterFormSubmit();
       }, (error) => {
           console.log(error.text);
       });
       e.target.reset()
 }
 
-const ContactForm = () => {
+const ContactForm = ({afterFormSubmit}) => {
+    const handleSubmit = (e) => {
+        sendEmail(e, afterFormSubmit);
+    }
+
   return (
-    <form onSubmit={sendEmail}>
+    <form onSubmit={handleSubmit}>
         <div className='grid grid-cols-2 font-avenir gap-3 mb-2'>
             <div className='grid grid-col-1'>
                 <label className='text-xs block text-gray-700 mb-1'>FIRST NAME</label>
