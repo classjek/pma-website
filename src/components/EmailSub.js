@@ -23,7 +23,7 @@ function EmailSub() {
                     placeholder="amy@gmail.com"
                     required
                 />
-                <button type="submit" className='bg-pma-orange px-8 rounded-r-lg text-gray-800 p-2 font-bold uppercase'>SUBMIT</button>
+                <button type="submit" className='bg-pma-orange px-8 rounded-r-lg text-white p-2 font-bold uppercase'>SUBMIT</button>
             </form>
         </div>
     );
