@@ -1,5 +1,6 @@
 import React from 'react'
 import EmailSub from '../EmailSub'
+import Instagram from '../Instagram'
 
 const About = () => {
   return (
@@ -7,12 +8,42 @@ const About = () => {
       <div>
         <img src='/images/home1.png' alt=''/>
       </div>
-      <div>
-        <h1>Recovering LA's Erased Mexican History</h1>
-        <p>Welcome! ...</p>
+      <div className='px-32 mt-10'> 
+        <h1 className='font-canela text-4xl text-center mb-4'>Recovering LA's Erased Mexican History</h1>
+        <p className='font-avenir text-md text-center'>
+          Welcome! Picturing Mexican America is a cluster of Digital humanities projects
+           designed and run by Professor Marissa L0pez at UCLA. We're looking back at the 
+           history of Mexican Los Angeles to help us understand our present and undo the 
+           systemic erasure of Los Angeles' Mexican past-in a fun way!
+          </p>
       </div>
       <div className='px-8 py-20'>
-        Stories
+        <h1 className='font-avenir font-bold'>POPULAR STORIES</h1>
+        <div className='border-t border-gray-900 my-4 w-auto mb-6'/>
+        <div className='flex justify-between mb-6'>
+          <div className='mx-auto'>
+            <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+            <h1 className='font-canela'>Temp Story Title</h1>
+            <p className='font-avenir text-xs'>April 4th, 2022</p>
+          </div>
+          <div className='mx-auto'>
+            <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+            <h1 className='font-canela'>Temp Story Title</h1>
+            <p className='font-avenir text-xs'>April 4th, 2022</p>
+          </div>
+          <div className='mx-auto'>
+            <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+            <h1 className='font-canela'>Temp Story Title</h1>
+            <p className='font-avenir text-xs'>April 4th, 2022</p>
+          </div>
+          <div className='mx-auto'>
+            <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+            <h1 className='font-canela'>Temp Story Title</h1>
+            <p className='font-avenir text-xs'>April 4th, 2022</p>
+          </div>
+
+        </div>
+        <h1 className='font-avenir text-gray-600'>More Stories</h1>
       </div>
       <div className='overflow-hidden relative flex items-center'>
         <img src='/images/home2crop.png' alt='' className='w-full object-cover'/>
@@ -32,6 +63,9 @@ const About = () => {
       </div>
       <div>
         <EmailSub/>
+      </div>
+      <div className='m-10'>
+        <Instagram />
       </div>
     </div>
   )
