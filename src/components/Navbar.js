@@ -14,7 +14,7 @@ export const Navbar = () => {
         <CustomLink to='/misterras' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>MIS TERRAS</CustomLink>
         <CustomLink to='/laselfie' className='font-avenir avenir text-base hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>LA SELFIE</CustomLink>
         <CustomLink to='/education' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>EDUCATION</CustomLink>
-        <CustomLink to='/contact' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>CONTACT</CustomLink>
+        <a href='https://mailchi.mp/8bb2d79e8e70/sign-up' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>CONTACT</a>
       </ul>
     </nav>
   )
@@ -29,7 +29,9 @@ export const Footer = () => {
         <CustomLink to='/misterras' className='font-avenir underline text-xs px-2'>Mis Terras</CustomLink>
         <CustomLink to='/laselfie' className='font-avenir underline text-xs px-2'>La Selfie</CustomLink>
         <CustomLink to='/education' className='font-avenir underline text-xs px-2'>Education</CustomLink>
-        <CustomLink to='/contact' className='font-avenir underline text-xs px-2'>Contact</CustomLink>
+        <li>
+          <a href='https://mailchi.mp/8bb2d79e8e70/sign-up' className='font-avenir underline text-xs px-2'>Contact</a>
+        </li>
       </div>  
       <div className='flex flex-col px-4 mt-12 mr-8'>
         <div className='flex justify-between ml-10 mb-3'>

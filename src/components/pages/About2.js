@@ -100,7 +100,9 @@ const About2 = () => {
                 Instagram, or if you have a connection to the places we've featured, we'd
                 love to hear from you.
               </p>
-            <button className='bg-pma-orange px-8 rounded-lg text-gray-800 p-2 font-bold mt-4'>Contact Us</button>
+            <button className='bg-pma-orange px-8 rounded-lg hover:bg-orange-700  p-2 font-bold mt-4'>
+              <a href='https://mailchi.mp/8bb2d79e8e70/sign-up' className='text-white'>Contact Us</a>
+            </button>
         </div>
       </div>
       <div className='mx-16'>

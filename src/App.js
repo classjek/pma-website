@@ -7,7 +7,6 @@ import Stories from './components/pages/Stories'
 import MisTerras from './components/pages/MisTerras'
 import LaSelfie from './components/pages/LaSelfie'
 import Education from './components/pages/Education'
-import Contact from './components/pages/Contact'
 
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
           <Route path='/misterras' element={<MisTerras />} />
           <Route path='/laselfie' element={<LaSelfie />} />
           <Route path='/education' element={<Education />} />
-          <Route path='/contact' element={<Contact />} />
         </Routes>
       </div>
       <Footer />
