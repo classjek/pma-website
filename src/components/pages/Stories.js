@@ -1,45 +1,86 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+import React from 'react'
+import Select from 'react-select'
 
 const Stories = () => {
-  const [place, setPlaces] = useState([]); // Initial state is an empty array
-
-  useEffect(() => {
-    const fetchPlaces = async () => {
-      try {
-        const res = await axios.post(API_URL+'/places', {
-            client: {
-                version: '37' // Set version to 35 or more
-              },
-        });
-
-        console.log("fetched places", res.data)
-        setPlaces(res.data.result); 
-      } catch (error) {
-        console.error('Failed to fetch places:', error);
-      }
-    };
-
-    fetchPlaces();
-  }, []); // Dependency array is empty to run only once on component mount
+  const options = [
+    {value: 'People', label: 'People'},
+    {value: 'Places', label: 'Places'},
+    {value: 'Women', label: 'Women'},
+    {value: 'Food', label: 'Food'},
+    {value: 'Music', label: 'Music'},
+    {value: 'Crime', label: 'Crime'},
+    {value: 'Families', label: 'Families'},
+    {value: 'Social Justice', label: 'Social Justice'},
+  ]
 
   return (
     <div>
-      <h1>Places</h1>
-      <ul>
-        {place.length > 0 ? (
-            place.map((p, index) => (
-                <div key={index}>
-                    <p>{p.name?.en}</p>
-                </div>
-            ))
-        ) : (
-            <p>loading...</p>
-        )}
-      </ul>
-    </div>
-  );
-};
+      <div className='px-10 mt-12'> 
+        <h1 className='font-canela text-4xl pb-8'>Stories of Picturing Mexican America</h1>
+        
+        <Select isMulti options={options} className='max-w-xs pb-5' />
+      <div className='border-t border-gray-900 mb-6 w-auto'/>
+      <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-y-4 py-12'>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
+        <div className='mx-auto'>
+          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <h1 className='font-canela'>Temp Story Title</h1>
+          <p className='font-avenir text-xs'>April 4th, 2022</p>
+        </div>
 
-export default Stories;
+      </div>
+      </div>
+    </div>
+  )
+}
+
+export default Stories
