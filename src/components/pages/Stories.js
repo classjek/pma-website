@@ -22,57 +22,57 @@ const Stories = () => {
       <div className='border-t border-gray-900 mb-6 w-auto'/>
       <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-y-4 py-12'>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>
         <div className='mx-auto'>
-          <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+          <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
           <h1 className='font-canela'>Temp Story Title</h1>
           <p className='font-avenir text-xs'>April 4th, 2022</p>
         </div>

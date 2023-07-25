@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
       <div>
-        <img src='/images/home1.png' alt=''/>
+        <img src='/pma-website/images/home1.png' alt=''/>
       </div>
       <div className='px-32 mt-10'> 
         <h1 className='font-canela text-4xl text-center mb-4'>Recovering LA's Erased Mexican History</h1>
@@ -22,22 +22,22 @@ const About = () => {
         <div className='border-t border-gray-900 my-4 w-auto mb-6'/>
         <div className='flex justify-between mb-6'>
           <div className='mx-auto'>
-            <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+            <img src='/pma-website/images/tempstory.JPG' alt='temp story' loading='lazy' className=' h-44'/>
             <h1 className='font-canela'>Temp Story Title</h1>
             <p className='font-avenir text-xs'>April 4th, 2022</p>
           </div>
           <div className='mx-auto'>
-            <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+            <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
             <h1 className='font-canela'>Temp Story Title</h1>
             <p className='font-avenir text-xs'>April 4th, 2022</p>
           </div>
           <div className='mx-auto'>
-            <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+            <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
             <h1 className='font-canela'>Temp Story Title</h1>
             <p className='font-avenir text-xs'>April 4th, 2022</p>
           </div>
           <div className='mx-auto'>
-            <img src='/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
+            <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
             <h1 className='font-canela'>Temp Story Title</h1>
             <p className='font-avenir text-xs'>April 4th, 2022</p>
           </div>
@@ -46,7 +46,7 @@ const About = () => {
         <h1 className='font-avenir text-gray-600'>More Stories</h1>
       </div>
       <div className='overflow-hidden relative flex items-center'>
-        <img src='/images/home2crop.png' alt='' className='w-full object-cover'/>
+        <img src='/pma-website/images/home2crop.png' alt='' className='w-full object-cover'/>
           <div className="absolute inset-0 flex items-center justify-end mx-40">
             <div className="relative bg-white bg-opacity-80 text-center p-4 rounded w-1/3 h-1/5 md:min-w-[300px] md:min-h-[130px]">
               <div className="flex">

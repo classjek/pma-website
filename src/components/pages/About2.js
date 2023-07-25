@@ -18,7 +18,7 @@ const About2 = () => {
         </div>
       </div>
       <div className='flex justify-around mb-16 px-24'>
-        <img src='/images/about1.png' loading='lazy' alt=''/>
+        <img src='/pma-website/images/about1.png' loading='lazy' alt=''/>
       </div>
       <div className='grid grid-cols-1 lg:grid-cols-2 px-24 mb-16 gap-10'>
         <div>
@@ -42,7 +42,7 @@ const About2 = () => {
         <div className='border-t border-gray-900 my-4 w-auto'/>
         <div className='grid grid-cols-1 lg:grid-cols-2'>
             <div className='flex justify-around'>
-              <img src='/images/appprev.png' loading='lazy' alt='' /> 
+              <img src='/pma-website/images/appprev.png' loading='lazy' alt='' /> 
             </div>
             <div className='px-6 sm:mt-4 lg:mt-0'>
                 <h2 className='font-avenir mb-1'>COMING SOON</h2>
@@ -70,12 +70,12 @@ const About2 = () => {
                 <a href='https://linkedin.com/in/jake-ekoniak/'>Learn More</a>
             </div>
             <div className='flex justify-around'>
-              <img src='/images/bikelogo.png' loading='lazy' alt='' />
+              <img src='/pma-website/images/bikelogo.png' loading='lazy' alt='' />
             </div>
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-2'>
             <div className='flex justify-around px-4'>
-              <img src='/images/826LA.png' loading='lazy' alt='' />
+              <img src='/pma-website/images/826LA.png' loading='lazy' alt='' />
             </div>
             <div>
                 <h2 className='font-avenir mb-1'>PAST COLLABS</h2>
@@ -111,7 +111,7 @@ const About2 = () => {
         <div className='grid grid-cols-1 lg:grid-cols-2'>
             <div className='m-2 sm:m-2 md:m-4 flex justify-center w-80'>
               <div>
-                <img src='/images/news1.png' loading='lazy' alt='' className='h-64 block w-auto'/>
+                <img src='/pma-website/images/news1.png' loading='lazy' alt='' className='h-64 block w-auto'/>
                 <h1 className='font-canela'>LA Times, September 2020</h1>
                 <p className='font-avenir text-s'>
                   A bike tour reveals hidden Latin history in downtown Los Angeles.
@@ -121,7 +121,7 @@ const About2 = () => {
             </div>
             <div className='m-2 sm:m-2 md:m-4 flex justify-center w-80'>
               <div>
-                <img src='/images/news2.png' loading='lazy' alt='' className='h-64 w-auto'/>
+                <img src='/pma-website/images/news2.png' loading='lazy' alt='' className='h-64 w-auto'/>
                 <div className='w-full'>
                   <h1 className='font-canela'>Los Angeles Public Library</h1>
                   <p className='font-avenir text-s'>
