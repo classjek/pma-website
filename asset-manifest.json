@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/pma-website/static/css/main.f387935b.css",
-    "main.js": "/pma-website/static/js/main.a4ac5362.js",
+    "main.js": "/pma-website/static/js/main.954e914a.js",
     "static/media/Canela-Regular.otf": "/pma-website/static/media/Canela-Regular.edc32bd0aadc5ef6691b.otf",
     "static/media/AvenirNextLTPro-Bold.otf": "/pma-website/static/media/AvenirNextLTPro-Bold.711a4eb654bf1139f123.otf",
     "static/media/AvenirNextLTPro-Regular.otf": "/pma-website/static/media/AvenirNextLTPro-Regular.94f2f163d4b698242fef.otf",
     "index.html": "/pma-website/index.html",
     "main.f387935b.css.map": "/pma-website/static/css/main.f387935b.css.map",
-    "main.a4ac5362.js.map": "/pma-website/static/js/main.a4ac5362.js.map"
+    "main.954e914a.js.map": "/pma-website/static/js/main.954e914a.js.map"
   },
   "entrypoints": [
     "static/css/main.f387935b.css",
-    "static/js/main.a4ac5362.js"
+    "static/js/main.954e914a.js"
   ]
 }
