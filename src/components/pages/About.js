@@ -22,7 +22,7 @@ const About = () => {
         <div className='border-t border-gray-900 my-4 w-auto mb-6'/>
         <div className='flex justify-between mb-6'>
           <div className='mx-auto'>
-            <img src='/pma-website/images/tempstory.JPG' alt='temp story' loading='lazy' className=' h-44'/>
+            <img src='/pma-website/images/tempstory.jpg' alt='temp story' loading='lazy' className=' h-44'/>
             <h1 className='font-canela'>Temp Story Title</h1>
             <p className='font-avenir text-xs'>April 4th, 2022</p>
           </div>
