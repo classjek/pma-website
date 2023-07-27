@@ -40,10 +40,10 @@ const Contact = () => {
         <h1 className='font-canela text-3xl mb-3'>Contact Us</h1>
         <ContactForm afterFormSubmit={handleFormSubmit}/>
         <div className='flex space-x-4 mt-3'>
-          <a href='https://www.instagram.com/picturingmexicanamerica'><img src='/icons/instagram2.svg' alt='' classname='text-black'/></a>
+          <a href='https://www.instagram.com/picturingmexicanamerica'><img src='/icons/instagram2.svg' alt='' className='text-black'/></a>
           <a href='https://www.facebook.com/picturingmexicanamerica'><img src='/icons/youtube2.svg' alt='' className='text-white'/></a>
-          <a href='https://www.youtube.com/channel/UCeuIC2BpuyY0yTau7OCwvCA'><img src='/icons/facebook2.svg' alt='' classname='text-white'/></a>
-          <a href='https://www.twitter.com/picturingmexam?lang=en'><img src='/icons/twitter2.svg' alt='' classname='text-white'/></a>
+          <a href='https://www.youtube.com/channel/UCeuIC2BpuyY0yTau7OCwvCA'><img src='/icons/facebook2.svg' alt='' className='text-white'/></a>
+          <a href='https://www.twitter.com/picturingmexam?lang=en'><img src='/icons/twitter2.svg' alt='' className='text-white'/></a>
         </div>
       </div>
     </div>
