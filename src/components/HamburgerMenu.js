@@ -8,14 +8,14 @@ export const HamburgerMenu = () => {
 
   return (
     <div className='md:hidden'>
-        <button className="p-2" onClick={() => setIsOpen(!isOpen)}>
+        <button className="p-6" onClick={() => setIsOpen(!isOpen)}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </button>
 
       {isOpen && (
-        <ul className="flex flex-col bg-white text-black w-1/2 fixed top-0 right-0 h-full z-10"Custom>
+        <ul className="flex flex-col bg-gray-400 text-gray-700 shadow-lg rounded-lg m-5 w-1/4 fixed top-0 right-0 h-auto z-10 p-5"Custom>
           <button
             className="p-2 self-end"
             onClick={() => setIsOpen(!isOpen)}
