@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
 import './fonts.css'
+import { HamburgerMenu } from './HamburgerMenu'
 
 export const Navbar = () => {
   return (
@@ -8,13 +9,16 @@ export const Navbar = () => {
       <Link to='/' className='text-white font-canela px-3 py-4 flex-shrink-0'>
         <img src='/Logo.png' alt="Logo" className='h-auto w-auto min-w-max max-h-14' />
       </Link>
-      <ul className='flex items-center justify-between mr-4 md:mr-6 lg:mr-10 px-2 lg:px-8 space-x-2 sm:space-x-3 md:space-x-5 lg:space-x-16'>
-        <CustomLink to='/about2' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>ABOUT</CustomLink>
-        <CustomLink to='/stories' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>STORIES</CustomLink>
-        <CustomLink to='/misterras' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>MIS TERRAS</CustomLink>
-        <CustomLink to='/laselfie' className='font-avenir avenir text-base hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>LA SELFIE</CustomLink>
-        <CustomLink to='/education' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>EDUCATION</CustomLink>
-        <a href='https://mailchi.mp/8bb2d79e8e70/sign-up' className='font-avenir text-base hover:text-gray-500 focus:text-pma-orange'>CONTACT</a>
+      <HamburgerMenu className="md:hidden" />
+      <ul className='hidden md:flex items-center justify-between mr-4 md:text-base md:mr-6 lg:mr-10 px-2 lg:px-8 space-x-2 sm:space-x-3 md:space-x-5 lg:space-x-16'>
+        <CustomLink to='/about2' className='font-avenir hover:text-gray-500 focus:text-pma-orange'>ABOUT</CustomLink>
+        <CustomLink to='/stories' className='font-avenir hover:text-gray-500 focus:text-pma-orange'>STORIES</CustomLink>
+        <CustomLink to='/misterras' className='font-avenir hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>MIS TERRAS</CustomLink>
+        <CustomLink to='/laselfie' className='font-avenir avenir hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>LA SELFIE</CustomLink>
+        <CustomLink to='/education' className='font-avenir hover:text-gray-500 focus:text-pma-orange'>EDUCATION</CustomLink>
+        <ul>
+          <a href='https://mailchi.mp/8bb2d79e8e70/sign-up' className='font-avenir hover:text-gray-500 focus:text-pma-orange'>CONTACT</a>
+        </ul>
       </ul>
     </nav>
   )
@@ -35,14 +39,14 @@ export const Footer = () => {
       </div>  
       <div className='flex flex-col px-4 mt-12 mr-8'>
         <div className='flex justify-between ml-10 mb-3'>
-          <a href='https://www.instagram.com/picturingmexicanamerica'><img src='/icons/instagram.svg' alt='' className='text-white'/></a>
-          <a href='https://www.facebook.com/picturingmexicanamerica'><img src='/icons/youtube.svg' alt='' className='text-white'/></a>
-          <a href='https://www.youtube.com/channel/UCeuIC2BpuyY0yTau7OCwvCA'><img src='/icons/facebook.svg' alt='' className='text-white'/></a>
-          <a href='https://www.twitter.com/picturingmexam?lang=en'><img src='/icons/twitter.svg' alt='' className='text-white'/></a>
+          <a href='https://www.instagram.com/picturingmexicanamerica'><img src='/pma-website/icons/instagram.svg' alt='' className='text-white'/></a>
+          <a href='https://www.facebook.com/picturingmexicanamerica'><img src='/pma-website/icons/youtube.svg' alt='' className='text-white'/></a>
+          <a href='https://www.youtube.com/channel/UCeuIC2BpuyY0yTau7OCwvCA'><img src='/pma-website/icons/facebook.svg' alt='' className='text-white'/></a>
+          <a href='https://www.twitter.com/picturingmexam?lang=en'><img src='/pma-website/icons/twitter.svg' alt='' className='text-white'/></a>
         </div>
         <div className='flex text-x text-white'>
           <p className='px-1'>Picturing Mexican America</p>
-          <img src='/icons/copyright.svg' alt='' className=' w-4' />
+          <img src='/pma-website/icons/copyright.svg' alt='' className=' w-4' />
           <p className='px-1'> 2022</p>
         </div>
       </div>

@@ -8,8 +8,8 @@ const About = () => {
       <div>
         <img src='/images/home1.png' alt=''/>
       </div>
-      <div className='px-32 mt-10'> 
-        <h1 className='font-canela text-4xl text-center mb-4'>Recovering LA's Erased Mexican History</h1>
+      <div className='xs:px-10 md:px-32 mt-10'> 
+        <h1 className='font-canela xs:text-3xl md:text-4xl text-center mb-4'>Recovering LA's Erased Mexican History</h1>
         <p className='font-avenir text-md text-center'>
           Welcome! Picturing Mexican America is a cluster of Digital humanities projects
            designed and run by Professor Marissa L0pez at UCLA. We're looking back at the 
@@ -17,7 +17,7 @@ const About = () => {
            systemic erasure of Los Angeles' Mexican past-in a fun way!
           </p>
       </div>
-      <div className='px-8 py-20'>
+      <div className='px-8 xs:py-10 md:py-20'>
         <h1 className='font-avenir font-bold'>POPULAR STORIES</h1>
         <div className='border-t border-gray-900 my-4 w-auto mb-6'/>
         <div className='flex justify-between mb-6'>
