@@ -23,10 +23,16 @@ function IndividualStory() {
         <div>
             {story ? (
                 <div className='flex flex-col'>
-                    <div className='bg-pma-dark-orange flex justify-around'>
-                        <img src={story.imageUrls.length > 0 ? story.imageUrls[0] : null} alt="" className='w-2/5 h-auto p-16'/>
+                    <div className='bg-pma-dark-orange flex flex-col items-center text-white'>
+                        <img src={story.imageUrls.length > 0 ? story.imageUrls[0] : null} alt="" className='h-96 md:h-124 p-5 pt-10'/>
+                        <h1 className='font-canela xs:text-3xl md:text-4xl'>Title to be Added</h1>
+                        <p className='font-avenir text-md text-center mb-5'>Blurb also to be Added</p>
                     </div>
-                    <p className='text-xs p-5'>{story.text?.en}</p>
+                    <p className='font-avenir text-s text-center pt-8 pb-4 px-10 md:px-20'>{story.text?.en}</p>
+                    <p className='px-10 md:px-20 text-xs text-gray-600 py-4'>Image courtesy of Huntington Library and Botanical Gardens</p>
+                    <p className='px-10 md:px-20 text-s text-gray-600 pb-6'>BY PROFESSOR MARISSA LOPEZ</p>
+                    <div className='border-t border-gray-900 my-4 w-auto mx-10 md:mx-20'/>
+                    <h1 className='text-center p-10'>NEXT STORY?</h1>
                 </div>
             ) : (
                 <p>Loading...</p>

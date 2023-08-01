@@ -27,21 +27,21 @@ const Stories = () => {
   }, []); // Dependency array is empty to run only once on component mount
 
   return (
-    <div>
-      <h1>Stories</h1>
-      <ul>
+    <div className='px-10 mt-12'>
+      <h1 className='font-canela text-4xl pb-8'>Stories of Picturing Mexican America</h1>
+      <div className='border-t border-gray-900 my-4 w-auto'/>
+      <div className='grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-y-4'>
         {stories.length > 0 ? (
           stories.map((s) => (
-            <div key={s._id} className='flex justify-around p-10'>
+            <div key={s._id} className='flex flex-col'>
               <img src={s.imageUrls.length > 0 ? s.imageUrls[0] : null} alt="" className='w-24 h-auto'/>
-              <p className='text-xs p-5'>{s.text?.en}</p>
               <button onClick={ ()=> navigate(`/stories/${s._id}`)} className=' bg-pink-400 rounded-lg'>Click Me</button>
             </div>
           ))
         ) : (
           <p>loading...</p>
         )}
-      </ul>
+      </div>
     </div>
   );
 };
