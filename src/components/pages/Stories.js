@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Stories = () => {
   const [stories, setStories] = useState([]); // Initial state is an empty array
-  const [page, setPage] = useState(1);
   const navigate = useNavigate();
+  const location = useLocation()
+
+  //parse page from query parameters or default to 1
+  const urlParams = new URLSearchParams(location.search);
+  const [page, setPage] = useState(parseInt(urlParams.get("page")) || 1);
 
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        const res = await axios.post('http://localhost:3001/stories', {
+        const res = await axios.post(`http://localhost:3001/stories?page=${page}`, {
           numStories: 5,
             client: {
                 version: '37' // Set version to 35 or more
@@ -27,8 +31,21 @@ const Stories = () => {
     fetchStories();
   }, [page]); // Dependency array is empty to run only once on component mount
 
-  const handleNext = () => setPage(prevPage => prevPage + 1);
-  const handlePrevious = () => setPage(prevPage => prevPage - 1);
+  const handleNext = () => {
+    const nextPage = page + 1;
+    setPage(nextPage);
+    navigate(`/stories?page=${nextPage}`);
+  };
+
+  const handlePrevious = () => {
+    const previousPage = page - 1;
+    setPage(previousPage);
+    if (previousPage === 1){
+      navigate(`/stories`);
+    } else {
+      navigate(`/stories?page=${previousPage}`);
+    }
+  };
 
   return (
     <div className='px-10 mt-12'>
