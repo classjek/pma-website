@@ -70,17 +70,17 @@ const Stories = () => {
           <p>loading...</p>
         )}
       </div>
-      <div className='border-t border-gray-900 m mb-12 w-auto'/>
-      <div className='flex justify-between'>
+      <div className='border-t border-gray-900 m mb-4 w-auto'/>
+      <div className='flex justify-between pb-8'>
         {page === 1 ? (
           <div />
         ) : (
-          <button onClick={handlePrevious}>Previous</button>
+          <button onClick={handlePrevious} className='font-avenir text-gray-600 hover:underline'>PREVIOUS</button>
         )}
         {loading === false && stories.length < 20 ? (
           <div />
         ) : (
-          <button onClick={handleNext}>Next</button>
+          <button onClick={handleNext} className='font-avenir text-gray-600 hover:underline'>NEXT</button>
         )}
       </div>
     </div>
