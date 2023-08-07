@@ -39,6 +39,7 @@ const Stories = () => {
     const nextPage = page + 1;
     setPage(nextPage);
     navigate(`/stories?page=${nextPage}`);
+    window.scrollTo(0, 0);
   };
 
   const handlePrevious = () => {
@@ -46,8 +47,10 @@ const Stories = () => {
     setPage(previousPage);
     if (previousPage === 1){
       navigate(`/stories`);
+      window.scrollTo(0, 0);
     } else {
       navigate(`/stories?page=${previousPage}`);
+      window.scrollTo(0, 0);
     }
   };
 

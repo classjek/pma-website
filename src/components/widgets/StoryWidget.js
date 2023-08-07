@@ -31,22 +31,22 @@ useEffect(() => {
 
   return (
     <div className='px-10'>
-      <div className='flex justify-around px-24'>
+      <div className='flex justify-around'>
         {stories.length > 0 ? (
           stories.map((s) => (
             <div key={s._id} className='flex flex-col items-center'>
               <img src={s.imageUrls.length > 0 ? s.imageUrls[0] : null} alt="" 
-                className=' h-64 w-auto'
+                className='h-64 w-auto'
                 onLoad={(e) => {
                   // When the image is loaded, set the width of the container div
                   e.target.parentNode.style.width = `${e.target.offsetWidth}px`;
                 }}
               />
-              <div className='bg-pma-orange w-full overflow-hidden'>
+              <div className='bg-pma-light-orange w-full overflow-hidden'>
+                <h1 className='font-avenir text-m line-clamp-3 mt-5 mx-4'>{s.text?.en}</h1>
                 <button onClick={ ()=> navigate(`/stories/${s._id}`)}>
-                  <h1 className='font-canela text-sm line-clamp-3 overflow-x-auto whitespace-normal break-words'>{s.text?.en}</h1>
+                  <p className='font-avenir text-s text-gray-800 mx-5 mb-5 mt-2 underline'>Read More</p>
                 </button>
-                <p className='font-avenir text-xs text-gray-600'>July 28th, 2023</p>
               </div>
             </div>
           ))
