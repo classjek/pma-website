@@ -23,7 +23,7 @@ const About = () => {
            systemic erasure of Los Angeles' Mexican past-in a fun way!
           </p>
       </div>
-      <div className='mx-10 px-8 xs:py-10 md:py-20'>
+      <div className='mx-10 px-8 xs:py-10 md:py-16'>
         <h1 className='font-avenir font-bold'>POPULAR STORIES</h1>
         <div className='border-t border-gray-900 mb-6 mt-2 w-auto'/>
         <StoryWidget/>
@@ -36,12 +36,12 @@ const About = () => {
         <img src='/images/home2crop.png' alt='' className='w-full object-cover'/>
           <div className="absolute inset-0 flex items-center justify-end mx-40">
             <div className="relative bg-white bg-opacity-80 text-center p-4 rounded w-1/3 h-1/5 md:min-w-[300px] md:min-h-[130px]">
-              <div className="flex">
-                <h1 className="text-left font-canela text-base md:text-xl px-4">
+              <a href='https://mailchi.mp/8bb2d79e8e70/sign-up' className="flex hover:underline">
+                <h1 className="text-left font-canela text-base md:text-xl pl-3 pr-1 pt-2">
                   Let's Collaborate
                 </h1>
                 <img src='/icons/arrow-right.svg' alt='' className='w-8'></img>
-              </div>
+              </a>
                   <p className="text-left text-sm md:text-base px-4">
                     We're always looking for writers, educators, and organizations to work with!
                   </p>

@@ -28,6 +28,7 @@ module.exports = {
       height: {
         '116': '28.5rem',
         '124': '31rem',
+        '148': '37rem',
       },
       maxWidth: {
         'smm': '22rem',

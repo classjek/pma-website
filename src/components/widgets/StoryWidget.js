@@ -34,7 +34,7 @@ useEffect(() => {
       <div className='flex justify-around'>
         {stories.length > 0 ? (
           stories.map((s) => (
-            <div key={s._id} className='flex flex-col items-center'>
+            <div key={s._id} className='flex flex-col items-center m-2'>
               <img src={s.imageUrls.length > 0 ? s.imageUrls[0] : null} alt="" 
                 className='h-64 w-auto'
                 onLoad={(e) => {

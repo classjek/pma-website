@@ -27,7 +27,7 @@ export const Navbar = () => {
 export const Footer = () => {
   return (
     <nav className='flex flex-col md:flex-row justify-between bg-pma-green'>
-      <div className='flex flex-grow items-center list-none mt-10 md:mt-20 mb-8 ml-10 text-white'>
+      <div className='flex flex-grow items-center list-none mt-10 md:mt-16 mb-8 ml-10 text-white'>
         <CustomLink to='/' className='font-avenir underline text-xs px-2'>About</CustomLink>
         <CustomLink to='/stories' className= 'font-avenir underline text-xs px-2'>Stories</CustomLink>
         <CustomLink to='/misterras' className='font-avenir underline text-xs px-2'>Mis Terras</CustomLink>

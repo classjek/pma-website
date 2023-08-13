@@ -1,7 +1,13 @@
 import React from 'react'
+import StoryWidget from '../widgets/StoryWidget'
 import { BsFiletypePdf } from 'react-icons/bs'
+import { FiArrowRight } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
 
 const Education = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className='grid grid-cols-1 lg:grid-cols-2 mx-auto max-w-screen-lg px-10'>
@@ -69,7 +75,7 @@ const Education = () => {
               </a>
             </div>  
           </div>
-          <div className=' bg-pma-pink mb-16'>
+          <div className=' bg-pma-pink mb-5'>
             <div className='m-8'>
               <h1 className='text-xl mb-4 font-avenir font-bold'>Simulation: Redistributing Mission Lands</h1>
               <p className='font-avenir'>
@@ -91,6 +97,15 @@ const Education = () => {
             </div>  
           </div>
         </div>
+      </div>
+      <div className='mx-10 px-8 xs:py-10 md:py-20'>
+        <h1 className='font-avenir font-bold'>NEWEST STORIES</h1>
+        <div className='border-t border-gray-900 mb-6 mt-2 w-auto'/>
+        <StoryWidget/>
+        <button onClick={ () => navigate('/stories')} className='flex hover:underline'>
+          <h1 className='font-avenir text-lg text-gray-600 mt-8'>More Stories</h1>
+          <FiArrowRight className='text-xl text-gray-600 mt-9'/>
+        </button>
       </div>
     </div>
   )

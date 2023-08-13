@@ -9,9 +9,6 @@ import MisTerras from './components/pages/MisTerras'
 import LaSelfie from './components/pages/LaSelfie'
 import Education from './components/pages/Education'
 
-//temp
-import StoryWidget from './components/widgets/StoryWidget';
-
 
 function App() {
   return (
@@ -26,7 +23,6 @@ function App() {
           <Route path='/misterras' element={<MisTerras />} />
           <Route path='/laselfie' element={<LaSelfie />} />
           <Route path='/education' element={<Education />} />
-          <Route path='/widget' element={<StoryWidget />} />
         </Routes>
       </div>
       <Footer />
