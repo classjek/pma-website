@@ -54,10 +54,10 @@ const MisTerras = () => {
   useEffect(()=> {
     if(map && places.length > 0){
       places.forEach(place => {
-        //new window.google.maps.Marker({
-        //  position: { lat: place.lat, lng: place.lng},
-        //  map: map,
-        //});
+        new window.google.maps.Marker({
+          position: { lat: place.lat, lng: place.lon},
+          map: map,
+        });
         console.log("new location", place.lat, place.lon);
       });
     }
