@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
 import axios from 'axios';
 
+const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
+
 // see if these are needed
 //import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -10,10 +12,13 @@ const MisTerras = () => {
   const [places, setPlaces] = useState([]);
   const [map, setMap] = useState(null);
   
+  //delete me
+  console.log(apiKey);
+  
 
   useEffect(()=> {
     const loader = new Loader({
-      apiKey: "AIzaSyAY7hh4EYU3tiudyiAMX-SubD_0Tpc3u6Q",
+      apiKey: apiKey,
       version: "weekly",
     });
 
