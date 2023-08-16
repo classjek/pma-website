@@ -11,9 +11,7 @@ const MisTerras = () => {
 
   const [places, setPlaces] = useState([]);
   const [map, setMap] = useState(null);
-  
-  //delete me
-  console.log(apiKey);
+
   
 
   useEffect(()=> {
@@ -62,6 +60,8 @@ const MisTerras = () => {
         new window.google.maps.Marker({
           position: { lat: place.lat, lng: place.lon},
           map: map,
+          icon: 'barn-icon.png'
+          
         });
         console.log("new location", place.lat, place.lon);
       });
