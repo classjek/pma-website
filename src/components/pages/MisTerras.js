@@ -18,6 +18,7 @@ const MisTerras = () => {
     const loader = new Loader({
       apiKey: apiKey,
       version: "weekly",
+      libraries: ["places"]
     });
 
     loader.load().then(async ()=> {
@@ -32,6 +33,7 @@ const MisTerras = () => {
 
       setMap(mapInstance);
     });
+
   }, []);
 
   useEffect(() => {
@@ -60,12 +62,23 @@ const MisTerras = () => {
         new window.google.maps.Marker({
           position: { lat: place.lat, lng: place.lon},
           map: map,
-          icon: 'barn-icon.png'
+          icon: 'marker_rancho.svg'
           
         });
         console.log("new location", place.lat, place.lon);
       });
     }
+
+    // Add Search bar
+    const input = document.getElementById("pac-input");
+    const searchBox = new window.google.maps.places.SearchBox(input);
+
+    map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(input);
+    // Bias the Searchbox results towards the current map's viewport
+    map.addListener("bounds_changed", () => {
+      searchBox.setBounds(map.getBounds());
+    })
+
   }, [map, places])
 
   return (
