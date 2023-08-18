@@ -12,8 +12,7 @@ const MisTerras = () => {
   const [places, setPlaces] = useState([]);
   const [map, setMap] = useState(null);
 
-  
-
+  // create map instance 
   useEffect(()=> {
     const loader = new Loader({
       apiKey: apiKey,
@@ -22,16 +21,18 @@ const MisTerras = () => {
     });
 
     loader.load().then(async ()=> {
-      const { Map } = await window.google.maps.importLibrary("maps");
+      setTimeout(async () => { 
+        const { Map } = await window.google.maps.importLibrary("maps");
+      
+        const mapInstance = new Map(document.getElementById("map"), {
+          center: { lat: 33.9522, lng: -118.2437 },
+          zoom: 10,
+          mapTypeId: 'roadmap',
+          mapId: '4bce721c1d3a22e5',
+        });
 
-      const mapInstance = new Map(document.getElementById("map"), {
-        center: { lat: 33.9522, lng: -118.2437 },
-        zoom: 10,
-        mapTypeId: 'roadmap',
-        mapId: '4bce721c1d3a22e5',
-      });
-
-      setMap(mapInstance);
+        setMap(mapInstance);
+      }, 0);
     });
 
   }, []);
@@ -57,29 +58,53 @@ const MisTerras = () => {
 
 
   useEffect(()=> {
-    if(map && places.length > 0){
-      places.forEach(place => {
-        new window.google.maps.Marker({
-          position: { lat: place.lat, lng: place.lon},
-          map: map,
-          icon: 'marker_rancho.svg'
-          
-        });
-        console.log("new location", place.lat, place.lon);
+
+    // hover effects for map markers
+    function addMarkerHoverEffect(marker, placeName, infoWindow){
+      //change icon on hover and display name
+      marker.addListener('mouseover', function() {
+        marker.setIcon('marker_rancho_selected.svg')
+        infoWindow.setContent(placeName);
+        infoWindow.open(map, marker);
       });
+
+      marker.addListener('mouseout', function() {
+        marker.setIcon('marker_rancho.svg');
+        infoWindow.close();
+      });
+    };
+
+
+    if(map){
+
+      //initialize infoWindow
+      const infoWindow = new window.google.maps.InfoWindow();
+
+      if(places.length > 0){
+        places.forEach(place => {
+          const marker = new window.google.maps.Marker({
+            position: { lat: place.lat, lng: place.lon},
+            map: map,
+            icon: 'marker_rancho.svg'
+          });
+
+          console.log(place.name?.en);
+          addMarkerHoverEffect(marker, place.name?.en, infoWindow);
+          //console.log("new location", place.lat, place.lon);
+        });
+      }
+
+      // Add Search bar
+      const input = document.getElementById("pac-input");
+      const searchBox = new window.google.maps.places.SearchBox(input);
+
+      map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(input);
+      // Bias the Searchbox results towards the current map's viewport
+      map.addListener("bounds_changed", () => {
+        searchBox.setBounds(map.getBounds());
+      })
     }
-
-    // Add Search bar
-    const input = document.getElementById("pac-input");
-    const searchBox = new window.google.maps.places.SearchBox(input);
-
-    map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(input);
-    // Bias the Searchbox results towards the current map's viewport
-    map.addListener("bounds_changed", () => {
-      searchBox.setBounds(map.getBounds());
-    })
-
-  }, [map, places])
+  }, [map, places]);
 
   return (
     <div>
@@ -90,4 +115,4 @@ const MisTerras = () => {
   )
 }
 
-export default MisTerras
+export default MisTerras;
