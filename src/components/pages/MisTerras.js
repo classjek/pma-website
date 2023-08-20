@@ -65,6 +65,11 @@ const MisTerras = () => {
       marker.addListener('mouseover', function() {
         marker.setIcon('marker_rancho_selected.svg')
         infoWindow.setContent(placeName);
+        infoWindow.setContent(
+          `<div class="bg-white rounded shadow-md">
+        <h2 class="text-l font-canela">${placeName}</h2>
+        </div>`
+      )
         infoWindow.open(map, marker);
       });
 
@@ -78,7 +83,9 @@ const MisTerras = () => {
     if(map){
 
       //initialize infoWindow
-      const infoWindow = new window.google.maps.InfoWindow();
+      const infoWindow = new window.google.maps.InfoWindow({
+        disableAutoPan: true
+      });
 
       if(places.length > 0){
         places.forEach(place => {
