@@ -105,7 +105,7 @@ const MisTerras = () => {
       const input = document.getElementById("pac-input");
       const searchBox = new window.google.maps.places.SearchBox(input);
 
-      map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(input);
+      //map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(input);
       // Bias the Searchbox results towards the current map's viewport
       map.addListener("bounds_changed", () => {
         searchBox.setBounds(map.getBounds());
@@ -116,7 +116,11 @@ const MisTerras = () => {
   return (
     <div>
       <div className=' bg-blue-200 w-full h-140'>
-            <div id="map" className='h-148 w-screen'></div>
+        <div className="absolute top-38 left-2 z-10 border p-2 rounded-md bg-white opacity-90 flex items-center">
+          <i className="fas fa-search mr-2"></i>
+          <input id="pac-input" className="outline-none" type="text" placeholder="Enter an address" />
+        </div>
+        <div id="map" className='h-148 w-screen'></div>
       </div>
     </div>
   )
