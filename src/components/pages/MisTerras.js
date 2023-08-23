@@ -11,6 +11,7 @@ const MisTerras = () => {
 
   const [places, setPlaces] = useState([]);
   const [map, setMap] = useState(null);
+  const [showInfo, setShowInfo] = useState(true);
 
   // create map instance 
   useEffect(()=> {
@@ -105,10 +106,38 @@ const MisTerras = () => {
       const input = document.getElementById("pac-input");
       const searchBox = new window.google.maps.places.SearchBox(input);
 
-      //map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(input);
       // Bias the Searchbox results towards the current map's viewport
       map.addListener("bounds_changed", () => {
         searchBox.setBounds(map.getBounds());
+      })
+
+      //search function
+      searchBox.addListener("places_changed", () => {
+        const places = searchBox.getPlaces();
+
+        if (places.length === 0){
+          return;
+        }
+
+        //display searched place
+        const bounds = new window.google.maps.LatLngBounds();
+        places.forEach(place => {
+          if(!place.geometry){
+            console.log("Returned place contains no geometry");
+            return;
+          }
+
+          //
+          if(place.geometry.viewport){
+            //uyse viewport if available
+            bounds.union(place.geometry.viewport);
+          } else {
+            //otherwise, use the location and extend the bounds
+            bounds.extend(place.geometry.location);
+          }
+        });
+
+        map.fitBounds(bounds);
       })
     }
   }, [map, places]);
@@ -120,6 +149,13 @@ const MisTerras = () => {
           <i className="fas fa-search mr-2"></i>
           <input id="pac-input" className="outline-none" type="text" placeholder="Enter an address" />
         </div>
+        {showInfo && (
+          <div className='absolute w-1/3 top-36 right-2 z-10 p-2 bg-map-orange opacity-80 text-black'>
+            <button className="absolute top-0 right-0 mt-1 mr-1 text-lg font-bold leading-none text-gray-800 hover:text-gray-500"
+              onClick={() => setShowInfo(false)}
+            > &times; </button>
+            <p className='font-avenir text-sm p-1'>Our interactive map displays images of 29th century Mexican Los Angeles. Our goal is to change users' perception of space, to make clear the consistent, enduring presence of Latinas in the United States.</p>
+          </div> )}
         <div id="map" className='h-148 w-screen'></div>
       </div>
     </div>

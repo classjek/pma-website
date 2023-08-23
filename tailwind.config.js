@@ -17,6 +17,7 @@ module.exports = {
         'pma-dark-orange': 'rgb(138, 70, 21)',
         'pma-pink': 'rgb(253,240,236)',
         'pma-light-orange': 'rgb(254,234,206)',
+        'map-orange': 'rgb(245,226,196)',
       },
       minWidth: {
         400: '400px',
