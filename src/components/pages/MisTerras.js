@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
@@ -12,6 +13,8 @@ const MisTerras = () => {
   const [places, setPlaces] = useState([]);
   const [map, setMap] = useState(null);
   const [showInfo, setShowInfo] = useState(true);
+
+  const navigate = useNavigate();
 
   // create map instance 
   useEffect(()=> {
@@ -61,7 +64,7 @@ const MisTerras = () => {
   useEffect(()=> {
 
     // hover effects for map markers
-    function addMarkerHoverEffect(marker, placeName, infoWindow){
+    function addMarkerHoverEffect(marker, placeName, infoWindow, place){
       //change icon on hover and display name
       marker.addListener('mouseover', function() {
         marker.setIcon('marker_rancho_selected.svg')
@@ -72,6 +75,12 @@ const MisTerras = () => {
         </div>`
       )
         infoWindow.open(map, marker);
+      });
+
+      marker.addListener('click', function(){
+        //pass 'place' object to route 
+        navigate(`/misterras/${place._id}`, {state: place});
+        console.log('Navigate to new page with', place);
       });
 
       marker.addListener('mouseout', function() {
@@ -96,9 +105,7 @@ const MisTerras = () => {
             icon: 'marker_rancho.svg'
           });
 
-          console.log(place.name?.en);
-          addMarkerHoverEffect(marker, place.name?.en, infoWindow);
-          //console.log("new location", place.lat, place.lon);
+          addMarkerHoverEffect(marker, place.name?.en, infoWindow, place);
         });
       }
 
@@ -127,9 +134,9 @@ const MisTerras = () => {
             return;
           }
 
-          //
+          //if geometry(location) is available
           if(place.geometry.viewport){
-            //uyse viewport if available
+            //use viewport if available
             bounds.union(place.geometry.viewport);
           } else {
             //otherwise, use the location and extend the bounds

@@ -6,8 +6,10 @@ import About2 from './components/pages/About2'
 import Stories from './components/pages/Stories'
 import IndividualStory from './components/pages/IndividualStory'
 import MisTerras from './components/pages/MisTerras'
+import IndividualPlace from './components/pages/IndividualPlace'
 import LaSelfie from './components/pages/LaSelfie'
 import Education from './components/pages/Education'
+
 
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path='/stories' element={<Stories />} />
           <Route path='/stories/:id' element={< IndividualStory/>} />
           <Route path='/misterras' element={<MisTerras />} />
+          <Route path='/misterras/:id' element={<IndividualPlace/>} />
           <Route path='/laselfie' element={<LaSelfie />} />
           <Route path='/education' element={<Education />} />
         </Routes>
