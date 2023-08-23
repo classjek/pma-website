@@ -14,7 +14,7 @@ const Education = () => {
         <div className='ml-10 mt-10 mb-10 flex justify-center flex-col items-center'>
           <div>
             <img src='/images/education.png' alt='' className='w-96 relative'/>
-            <p className='font-avenir text-xs text-gray-700 mt-1'>Sylvia Mendez - Mendez v. Westminster 1946</p>
+            <p className='font-avenir text-xs text-gray-700 mt-1'>Image Courtesy Sylvia Mendez School</p>
           </div>
         </div>
         <div className='mt-20 mb-10'>

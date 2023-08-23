@@ -9,7 +9,7 @@ const LaSelfie = () => {
             <img src='/images/ArcadiaBandiniStearnsdeBaker.png' alt='Heiress' loading='lazy' className='max-w-xxs'/>
         </div>
         <div className='col-span-3 text-center px-2'>
-          <h1 className='font-canela text-4xl'>Who are you?</h1>
+          <h1 className='font-canela text-4xl'>¿Quién esta usted?</h1>
           <h2 className='font-avenir pb-3'>Take a selfie and match to a Mexican historical portrait</h2>
           <img src='/images/blurryface.png' alt='' loading='lazy' className='mx-auto object-contain max-w-smm'/>
         </div>
