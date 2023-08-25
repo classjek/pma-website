@@ -54,7 +54,7 @@ const IndividualPlace = () => {
                     {/* Popup to give more information about artifacts */}
                     {showPopup && (
                         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
-                            <div className=" bg-white w-3/4 h-3/4 p-8 rounded-lg shadow-lg relative">
+                            <div className=" bg-pma-light-orange w-3/4 h-3/4 p-8 rounded-lg shadow-lg relative">
                                 <button className="absolute top-2 right-4 text-xl text-gray-800 hover:text-gray-500" onClick={() => setShowPopup(false)}>&times;</button>
                                 <div className='flex flex-col justify-center items-center h-full p-5'>
                                     <img src={selectedArtifact.imageUrl} alt={selectedArtifact.title?.en} className='max-h-64 w-auto'/>
@@ -68,10 +68,21 @@ const IndividualPlace = () => {
                     )}
 
                     <p className='font-avenir text-s text-center pt-8 pb-4 px-10 md:px-32'>{placeData.description?.en}</p>
-
-                    <p className='px-10 md:px-20 text-xs text-gray-600 py-4'>Image courtesy of Huntington Library and Botanical Gardens</p>
-                    <p className='px-10 md:px-20 text-s text-gray-600 pb-6'>BY PROFESSOR MARISSA LOPEZ</p>
-                    <div className='border-t border-gray-900 my-4 w-auto mx-10 md:mx-20'/>
+                    {placeData.artifacts.length > 4 && (
+                        <div className='flex justify-around align-center space-x-4 h-64 pt-5 px-20 pb-12'>
+                            {placeData.artifacts.slice(5, 8).map((artifact, index) => (
+                                <div key={index} className="relative" onClick={()=> handleArtifactClick(artifact)}>
+                                    <img 
+                                        src={artifact.imageUrl} 
+                                        alt={artifact.title?.en} 
+                                        title={artifact.caption?.en}  // Tooltip on hover for description
+                                        className='h-full w-full object-cover'
+                                    />
+                                </div>
+                    
+                            ))}
+                        </div>
+                    )}
                 </div>
             ) : (
                 <p>Loading...</p>

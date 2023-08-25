@@ -71,6 +71,7 @@ const MisTerras = () => {
         infoWindow.setContent(placeName);
         infoWindow.setContent(
           `<div class="bg-white rounded shadow-md">
+          <img src=${place.artifacts[0].imageUrl} alt='' class="h-48 w-auto pb-3"/>
         <h2 class="text-l font-canela">${placeName}</h2>
         </div>`
       )
@@ -99,6 +100,23 @@ const MisTerras = () => {
 
       if(places.length > 0){
         places.forEach(place => {
+          if(place.placeType === "street"){
+            console.log("non rancho:", place.placeType)
+          }
+          /*
+          if(place.placeType === "rancho"){
+            const marker = new window.google.maps.Marker({
+              position: { lat: place.lat, lng: place.lon},
+              map: map,
+              icon: 'marker_rancho.svg'
+            });
+          } else {
+            const marker = new window.google.maps.Marker({
+              position: { lat: place.lat, lng: place.lon},
+              map: map,
+              icon: 'marker_street.svg'
+            });
+          }*/
           const marker = new window.google.maps.Marker({
             position: { lat: place.lat, lng: place.lon},
             map: map,
