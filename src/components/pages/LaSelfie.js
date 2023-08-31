@@ -19,15 +19,20 @@ const LaSelfie = () => {
   };
 
   const captureImage = () => {
-    const context = canvasRef.current.getContext('2d');
-    context.drawImage(videoRef.current, 0, 0, 640, 480);
+    if(videoRef.current.readyState === videoRef.current.HAVE_ENOUGH_DATA) {
+      if(canvasRef.current){
+        const context = canvasRef.current.getContext('2d');
+        context.drawImage(videoRef.current, 0, 0, 640, 480);
 
-    const imageData = canvasRef.current.toDataUrl('image/jpeg');
-    sendToBackend(imageData);
+        canvasRef.current.toBlob(sendToBackend, 'image/jpeg');
+      } else {
+        console.error('Canvas not available');
+      }
+    }
   }
 
   const sendToBackend = (data) => {
-    console.log('Sending this to backend', data);
+    console.log('to send to backend', data);
   }
 
   const handlePhotoClick = () => {
@@ -62,7 +67,7 @@ const LaSelfie = () => {
       </div>
       <div className='flex justify-center pb-12'>
         { isCameraMode ? 
-          <button className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200'>
+          <button onClick={captureImage} className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200'>
           TAKE PHOTO
           </button> 
           :
@@ -71,6 +76,9 @@ const LaSelfie = () => {
           </button> 
         }
       </div>
+
+      {/* Is not displayed to user, stores image when picture is taken */}
+      <canvas ref={canvasRef} style={{ display: "none" }} width="640" height="480"></canvas>
     </div>
   )
 }
