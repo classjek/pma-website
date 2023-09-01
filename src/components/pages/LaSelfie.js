@@ -1,11 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 
 const LaSelfie = () => {
-
-  const location = useLocation();
 
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -21,6 +18,17 @@ const LaSelfie = () => {
       setIsCameraOn(true);
     } catch (error){
       console.error("Error accessing the webcam:", error);
+    }
+  };
+
+  // Stop Camera
+  // Trying to get Camera to shut off when component unmounts
+  // currently having some difficulty
+  const stopCamera = () => {
+    if(videoRef.current && videoRef.current.srcObject){
+      const tracks = videoRef.current.srcObject.getTracks();
+      tracks.forEach(track => track.stop());
+      setIsCameraOn(false);
     }
   };
 
@@ -73,22 +81,20 @@ const LaSelfie = () => {
   };
 
   useEffect(()=> {
+    console.log('Use effect')
     if(isCameraMode && !isCameraOn) {
       startCamera();
     }
+
   }, [isCameraMode, isCameraOn]);
 
-  // Shut off camera when page is left
-  useEffect(() => {
-    // Will run every time the location changes
-    if(isCameraOn){
-      if(videoRef.current && videoRef.current.srcObject){
-        const tracks = videoRef.current.srcObject.getTracks();
-        tracks.forEach(track => track.stop());
-      }
-      setIsCameraOn(false);
-    }
-  }, [isCameraOn, location, videoRef]);
+
+  // Cleanup function to close camera is when component unmounts
+  useEffect(()=> {
+    return () => {
+      stopCamera();
+    };
+  }, [])
 
   return (
     <div>
