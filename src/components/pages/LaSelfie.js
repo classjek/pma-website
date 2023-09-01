@@ -1,8 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 
 const LaSelfie = () => {
+
+  const location = useLocation();
 
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -10,6 +13,7 @@ const LaSelfie = () => {
   const [isCameraOn, setIsCameraOn] = useState(false);
   const [takenPictureBlob, setTakenPictureBlob] = useState(null);
 
+  // start Camera
   const startCamera = async () => {
     try{
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -20,6 +24,7 @@ const LaSelfie = () => {
     }
   };
 
+  // Take a picture in blob format
   const captureImage = () => {
     if(videoRef.current.readyState === videoRef.current.HAVE_ENOUGH_DATA) {
       if(canvasRef.current){
@@ -47,6 +52,7 @@ const LaSelfie = () => {
     }
   }
 
+  // Send image to backend, currently not working due to API paywall
   const sendToBackend = async (imageBlob) => {
     try {
         // Create a FormData object
@@ -54,7 +60,7 @@ const LaSelfie = () => {
         formData.append('image', imageBlob);
 
         // Send the object to the backend
-        const res = await axios.post('http://localhost:3001/facematch', FormData);
+        const res = await axios.post('http://localhost:3001/facematch', formData);
 
         console.log('Backend Response:', res.data);
     } catch (error) {
@@ -72,24 +78,36 @@ const LaSelfie = () => {
     }
   }, [isCameraMode, isCameraOn]);
 
+  // Shut off camera when page is left
+  useEffect(() => {
+    // Will run every time the location changes
+    if(isCameraOn){
+      if(videoRef.current && videoRef.current.srcObject){
+        const tracks = videoRef.current.srcObject.getTracks();
+        tracks.forEach(track => track.stop());
+      }
+      setIsCameraOn(false);
+    }
+  }, [isCameraOn, location, videoRef]);
+
   return (
     <div>
-      <div className='grid grid-cols-7 mx-auto px-16 pb-2 pt-2'>
-        <div className='col-span-2 flex flex-col items-center justify-center pt-6'>
+      <div className='grid grid-cols-3 lg:grid-cols-7 mx-auto px-16 pb-2 pt-2'>
+        <div className='hidden lg:flex col-span-2 flex-col items-center justify-center pt-6'>
             <h1 className='font-avenir text-center'>An Heiress?</h1>
             <img src='/images/ArcadiaBandiniStearnsdeBaker.png' alt='Heiress' loading='lazy' className='max-w-xxs'/>
         </div>
         <div className='col-span-3 text-center px-2'>
-          <h1 className='font-canela text-4xl'>¿Quién esta usted?</h1>
-          <h2 className='font-avenir pb-3'>Take a selfie and match to a Mexican historical portrait</h2>
+            <h1 className='font-canela text-4xl'>¿Quién esta usted?</h1>
+            <h2 className='font-avenir pb-3'>Take a selfie and match to a Mexican historical portrait</h2>
           { isCameraMode ? 
-          <video ref={videoRef} autoPlay={true} className='-scale-x-100'></video> :
+          <video ref={videoRef} autoPlay={true} className='-scale-x-100 mx-auto '></video> :
           takenPictureBlob ? 
-          <img src={URL.createObjectURL(takenPictureBlob)} alt="Captured" className='-scale-x-100 mx-auto object-contain max-w-smm' /> :
-          <img src='/images/blurryface.png' alt='' loading='lazy' className='mx-auto object-contain max-w-smm'/>
+          <img src={URL.createObjectURL(takenPictureBlob)} alt="Captured" className='-scale-x-100 w-60 md:max-w-smm mx-auto object-contain' /> :
+          <img src='/images/blurryface.png' alt='' loading='lazy' className=' w-60 md:max-w-smm mx-auto object-contain'/>
           }
         </div>
-        <div className='col-span-2 flex flex-col items-center justify-center pt-6'>
+        <div className='hidden lg:flex col-span-2 flex-col items-center justify-center pt-6'>
           <h1 className='font-avenir text-center'>A soldier?</h1>
           <img src='/images/JoseRamonPico.png' alt='Soldier' loading='lazy' className='max-w-xxs'/>
         </div>
