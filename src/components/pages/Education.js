@@ -11,13 +11,11 @@ const Education = () => {
   return (
     <div>
       <div className='grid grid-cols-1 lg:grid-cols-2 mx-auto max-w-screen-lg px-10'>
-        <div className='ml-10 mt-10 mb-10 flex justify-center flex-col items-center'>
-          <div>
-            <img src='/images/education.png' alt='' className='w-96 relative'/>
-            <p className='font-avenir text-xs text-gray-700 mt-1'>Image Courtesy Sylvia Mendez School</p>
-          </div>
+        <div className='mt-5 mb-5 md:mt-10 md:mb-10 flex justify-center flex-col items-center'>
+          <img src='/images/education.png' alt='' className='w-96 relative'/>
+          <p className='font-avenir text-xs text-gray-700 mt-1'>Image Courtesy Sylvia Mendez School</p>
         </div>
-        <div className='mt-20 mb-10'>
+        <div className='mt-5 md:mt-20 mb-10'>
           <h1 className='font-canela text-4xl'>Using Picturing Mexican America In The Classroom</h1>
           <p className='font-avenir'>
             Here we plan to include resources and teaching ideas for working with Picturing Mexican America 
