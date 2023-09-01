@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import axios from 'axios';
 
 
 const LaSelfie = () => {
@@ -7,6 +8,7 @@ const LaSelfie = () => {
   const canvasRef = useRef(null);
   const [isCameraMode, setIsCameraMode] = useState(false);
   const [isCameraOn, setIsCameraOn] = useState(false);
+  const [takenPictureBlob, setTakenPictureBlob] = useState(null);
 
   const startCamera = async () => {
     try{
@@ -24,16 +26,41 @@ const LaSelfie = () => {
         const context = canvasRef.current.getContext('2d');
         context.drawImage(videoRef.current, 0, 0, 640, 480);
 
-        canvasRef.current.toBlob(sendToBackend, 'image/jpeg');
+        canvasRef.current.toBlob(blob => {
+          setTakenPictureBlob(blob)
+
+          // Send image blob to backend
+          sendToBackend(blob);
+        }, 'image/jpeg');
+        
+        // Stop Camera
+        if(videoRef.current.srcObject){
+          const tracks = videoRef.current.srcObject.getTracks();
+          tracks.forEach(track => track.stop());
+        }
+        setIsCameraOn(false);
+        setIsCameraMode(false);
+
       } else {
         console.error('Canvas not available');
       }
     }
   }
 
-  const sendToBackend = (data) => {
-    console.log('to send to backend', data);
-  }
+  const sendToBackend = async (imageBlob) => {
+    try {
+        // Create a FormData object
+        const formData = new FormData();
+        formData.append('image', imageBlob);
+
+        // Send the object to the backend
+        const res = await axios.post('http://localhost:3001/facematch', FormData);
+
+        console.log('Backend Response:', res.data);
+    } catch (error) {
+        console.error('Error sending data to backend:', error);
+    }
+  };
 
   const handlePhotoClick = () => {
     setIsCameraMode(true);
@@ -57,6 +84,8 @@ const LaSelfie = () => {
           <h2 className='font-avenir pb-3'>Take a selfie and match to a Mexican historical portrait</h2>
           { isCameraMode ? 
           <video ref={videoRef} autoPlay={true} className='-scale-x-100'></video> :
+          takenPictureBlob ? 
+          <img src={URL.createObjectURL(takenPictureBlob)} alt="Captured" className='-scale-x-100 mx-auto object-contain max-w-smm' /> :
           <img src='/images/blurryface.png' alt='' loading='lazy' className='mx-auto object-contain max-w-smm'/>
           }
         </div>
@@ -71,6 +100,10 @@ const LaSelfie = () => {
           TAKE PHOTO
           </button> 
           :
+          takenPictureBlob ? 
+          <button onClick={handlePhotoClick} className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200'>
+          TAKE ANOTHER PICTURE
+          </button> :
           <button onClick={handlePhotoClick} className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200'>
           TURN CAMERA ON
           </button> 
