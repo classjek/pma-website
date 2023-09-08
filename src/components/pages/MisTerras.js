@@ -81,7 +81,6 @@ const MisTerras = () => {
       marker.addListener('click', function(){
         //pass 'place' object to route 
         navigate(`/misterras/${place._id}`, {state: place});
-        console.log('Navigate to new page with', place);
       });
 
       marker.addListener('mouseout', function() {
@@ -103,7 +102,6 @@ const MisTerras = () => {
 
           // Draw a street 
           if(place.placeType === "street"){
-            console.log("non rancho:", place.placeType, place)
 
             // Add Street Marker
             const streetMarker = new window.google.maps.Marker({
@@ -189,7 +187,7 @@ const MisTerras = () => {
         map.fitBounds(bounds);
       })
     }
-  }, [map, places]);
+  }, [map, places, navigate]);
 
   return (
     <div>
