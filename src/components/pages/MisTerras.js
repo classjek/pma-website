@@ -100,23 +100,45 @@ const MisTerras = () => {
 
       if(places.length > 0){
         places.forEach(place => {
+
+          // Draw a street 
           if(place.placeType === "street"){
-            console.log("non rancho:", place.placeType)
-          }
-          /*
-          if(place.placeType === "rancho"){
-            const marker = new window.google.maps.Marker({
-              position: { lat: place.lat, lng: place.lon},
-              map: map,
-              icon: 'marker_rancho.svg'
-            });
-          } else {
-            const marker = new window.google.maps.Marker({
+            console.log("non rancho:", place.placeType, place)
+
+            // Add Street Marker
+            const streetMarker = new window.google.maps.Marker({
               position: { lat: place.lat, lng: place.lon},
               map: map,
               icon: 'marker_street.svg'
-            });
-          }*/
+            })
+
+            streetMarker.setMap(map);
+
+            // If the street has an associated line
+            if (Array.isArray(place.line)) {
+              const streetPath = place.line.map(coords => ({
+                lat: coords[0],
+                lng: coords[1]
+              }));
+
+              const streetLine = new window.google.maps.Polyline({
+                path: streetPath,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 4
+              });
+
+              streetLine.setMap(map);
+
+            }
+
+            // Add hover effects 
+
+
+          } else {
+
+          // Element is a Rancho
           const marker = new window.google.maps.Marker({
             position: { lat: place.lat, lng: place.lon},
             map: map,
@@ -124,6 +146,8 @@ const MisTerras = () => {
           });
 
           addMarkerHoverEffect(marker, place.name?.en, infoWindow, place);
+          }
+
         });
       }
 

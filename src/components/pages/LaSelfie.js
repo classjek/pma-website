@@ -25,10 +25,15 @@ const LaSelfie = () => {
   // Trying to get Camera to shut off when component unmounts
   // currently having some difficulty
   const stopCamera = () => {
+    console.log(videoRef.current);
+    //console.log(videoRef.current.srcObject);
     if(videoRef.current && videoRef.current.srcObject){
       const tracks = videoRef.current.srcObject.getTracks();
+      console.log('Tracks:', tracks);  // Log the tracks to inspect them.
       tracks.forEach(track => track.stop());
       setIsCameraOn(false);
+    } else{
+      console.log('Something aint right')
     }
   };
 
@@ -92,6 +97,7 @@ const LaSelfie = () => {
   // Cleanup function to close camera is when component unmounts
   useEffect(()=> {
     return () => {
+      console.log('Stop camera')
       stopCamera();
     };
   }, [])
