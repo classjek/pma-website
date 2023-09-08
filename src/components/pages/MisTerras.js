@@ -63,11 +63,15 @@ const MisTerras = () => {
 
   useEffect(()=> {
 
-    // hover effects for map markers
+    // Hover effects for map markers
     function addMarkerHoverEffect(marker, placeName, infoWindow, place){
-      //change icon on hover and display name
+      // Change icon on hover and display name
       marker.addListener('mouseover', function() {
-        marker.setIcon('marker_rancho_selected.svg')
+        if(place.placeType === "rancho"){
+          marker.setIcon('marker_rancho_selected.svg');
+        } else {
+          marker.setIcon('marker_street_selected.svg');
+        }
         infoWindow.setContent(placeName);
         infoWindow.setContent(
           `<div class="bg-white rounded shadow-md">
@@ -80,11 +84,18 @@ const MisTerras = () => {
 
       marker.addListener('click', function(){
         //pass 'place' object to route 
-        navigate(`/misterras/${place._id}`, {state: place});
+        // Street markers are unclickable due to lack of data
+        if (place.placeType === "rancho"){
+          navigate(`/misterras/${place._id}`, {state: place});
+        }
       });
 
       marker.addListener('mouseout', function() {
-        marker.setIcon('marker_rancho.svg');
+        if (place.placeType === "rancho"){
+          marker.setIcon('marker_rancho.svg');
+        } else {
+          marker.setIcon('marker_street.svg');
+        }
         infoWindow.close();
       });
     };
@@ -112,6 +123,9 @@ const MisTerras = () => {
 
             streetMarker.setMap(map);
 
+            // Add hover effects
+            addMarkerHoverEffect(streetMarker, place.name?.en, infoWindow, place);
+
             // If the street has an associated line
             if (Array.isArray(place.line)) {
               const streetPath = place.line.map(coords => ({
@@ -131,11 +145,7 @@ const MisTerras = () => {
 
             }
 
-            // Add hover effects 
-
-
           } else {
-
           // Element is a Rancho
           const marker = new window.google.maps.Marker({
             position: { lat: place.lat, lng: place.lon},
