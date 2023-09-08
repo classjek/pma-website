@@ -11,7 +11,7 @@ export const Navbar = () => {
       </Link>
       <HamburgerMenu className="md:hidden" />
       <ul className='hidden md:flex items-center justify-between mr-4 md:text-base md:mr-6 lg:mr-10 px-2 lg:px-8 space-x-2 sm:space-x-3 md:space-x-5 lg:space-x-16'>
-        <CustomLink to='/about2' className='font-avenir hover:text-gray-500 focus:text-pma-orange'>ABOUT</CustomLink>
+        <CustomLink to='/about' className='font-avenir hover:text-gray-500 focus:text-pma-orange'>ABOUT</CustomLink>
         <CustomLink to='/stories' className='font-avenir hover:text-gray-500 focus:text-pma-orange'>STORIES</CustomLink>
         <CustomLink to='/misterras' className='font-avenir hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>MIS TERRAS</CustomLink>
         <CustomLink to='/laselfie' className='font-avenir avenir hover:text-gray-500 focus:text-pma-orange whitespace-nowrap'>LA SELFIE</CustomLink>
@@ -28,7 +28,7 @@ export const Footer = () => {
   return (
     <nav className='flex flex-col md:flex-row justify-between bg-pma-green'>
       <div className='flex flex-grow items-center list-none mt-10 md:mt-16 mb-8 ml-10 text-white'>
-        <CustomLink to='/' className='font-avenir underline text-xs px-2'>About</CustomLink>
+        <CustomLink to='/about' className='font-avenir underline text-xs px-2'>About</CustomLink>
         <CustomLink to='/stories' className= 'font-avenir underline text-xs px-2'>Stories</CustomLink>
         <CustomLink to='/misterras' className='font-avenir underline text-xs px-2'>Mis Terras</CustomLink>
         <CustomLink to='/laselfie' className='font-avenir underline text-xs px-2'>La Selfie</CustomLink>

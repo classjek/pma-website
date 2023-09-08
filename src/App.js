@@ -1,8 +1,8 @@
 import './App.css';
 import { Navbar, Footer } from './components/Navbar'
 import { Route, Routes } from 'react-router-dom'
+import Home from './components/pages/Home'
 import About from './components/pages/About'
-import About2 from './components/pages/About2'
 import Stories from './components/pages/Stories'
 import IndividualStory from './components/pages/IndividualStory'
 import MisTerras from './components/pages/MisTerras'
@@ -18,8 +18,8 @@ function App() {
       <Navbar />
       <div className="App">
         <Routes>
-          <Route path='/' element={<About />} />
-          <Route path='/about2' element={<About2 />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
           <Route path='/stories' element={<Stories />} />
           <Route path='/stories/:id' element={< IndividualStory/>} />
           <Route path='/misterras' element={<MisTerras />} />
