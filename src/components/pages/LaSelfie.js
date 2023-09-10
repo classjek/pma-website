@@ -72,8 +72,11 @@ const LaSelfie = () => {
         const formData = new FormData();
         formData.append('image', imageBlob);
 
+        // Only necessary for testing, faceMatch does not check the version
+        formData.append('version', '36');
+
         // Send the object to the backend
-        const res = await axios.post('http://localhost:3001/facematch', formData);
+        const res = await axios.post('http://localhost:3001/facesnatch', formData);
 
         console.log('Backend Response:', res.data);
     } catch (error) {
