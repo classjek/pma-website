@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
+import CircularProgressBar from '../widgets/CircularProgressBar';
 
 
 const LaSelfie = () => {
@@ -9,6 +10,7 @@ const LaSelfie = () => {
   const [isCameraMode, setIsCameraMode] = useState(false);
   const [isCameraOn, setIsCameraOn] = useState(false);
   const [takenPictureBlob, setTakenPictureBlob] = useState(null);
+  const [backendResults, setBackendResults] = useState(null);
 
   // start Camera
   const startCamera = async () => {
@@ -79,6 +81,7 @@ const LaSelfie = () => {
         const res = await axios.post('http://localhost:3001/facesnatch', formData);
 
         console.log('Backend Response:', res.data);
+        setBackendResults(res.data);
     } catch (error) {
         console.error('Error sending data to backend:', error);
     }
@@ -107,6 +110,27 @@ const LaSelfie = () => {
 
   return (
     <div>
+      { backendResults ? 
+      <div>
+        <div className='text-center pt-10'>
+          <h1 className='font-avenir text-xl'>YOUR MATCH</h1>
+          <h1 className='font-canela text-3xl'>yo momma</h1>
+        </div> 
+        <div>
+          <div>Confidence: {backendResults[0].confidence}</div>
+          <CircularProgressBar value={backendResults[0].confidence}/>
+          <div>Something should be here: {backendResults[0].artifacts[0].title?.en}</div>
+          <div className='flex justify-around'>
+            <div className='flex'>
+              <img src={URL.createObjectURL(takenPictureBlob)} alt="Captured" className='-scale-x-100 w-96 object-contain' />
+              <img src={backendResults[0].artifacts.length > 0 ? backendResults[0].artifacts[0].imageUrl : null} alt="" className='w-96 object-contain'/>
+            </div>
+          </div>
+        </div>
+        <div>{backendResults[0]._id}</div>
+      </div>
+      : 
+      <div>
       <div className='grid grid-cols-3 lg:grid-cols-7 mx-auto px-16 pb-2 pt-2'>
         <div className='hidden lg:flex col-span-2 flex-col items-center justify-center pt-6'>
             <h1 className='font-avenir text-center'>An Heiress?</h1>
@@ -143,8 +167,11 @@ const LaSelfie = () => {
         }
       </div>
 
+
       {/* Is not displayed to user, stores image when picture is taken */}
       <canvas ref={canvasRef} style={{ display: "none" }} width="640" height="480"></canvas>
+      </div>
+    }
     </div>
   )
 }
