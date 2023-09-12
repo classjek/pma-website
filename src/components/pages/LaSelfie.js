@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import CircularProgressBar from '../widgets/CircularProgressBar';
 
 
@@ -11,6 +12,8 @@ const LaSelfie = () => {
   const [isCameraOn, setIsCameraOn] = useState(false);
   const [takenPictureBlob, setTakenPictureBlob] = useState(null);
   const [backendResults, setBackendResults] = useState(null);
+
+  const navigate = useNavigate();
 
   // start Camera
   const startCamera = async () => {
@@ -112,7 +115,7 @@ const LaSelfie = () => {
     <div>
       { backendResults ? 
       <div>
-        <div className='flex justify-around pt-10'>
+        <div className='flex justify-around pt-8'>
           <div className='flex'>
             <CircularProgressBar value={backendResults[0].confidence}/>
             <div className='text-center mt-3'>
@@ -129,16 +132,18 @@ const LaSelfie = () => {
             </div>
           </div>
         </div>
-          <div className='font-avenir text-center mt-10 px-12 md:px-48'>
+          <div className='font-avenir text-center mt-6 px-12 md:px-48'>
             {backendResults[0].person[0].description?.en}
           </div>
           <div className='flex justify-around'>
-            <button className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200'>
-              LEARN MORE
-            </button> 
-          </div>
-          <div className='flex justify-center'>
-            <button>RETAKE</button>
+            <div>
+              <button className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200 mx-2'>
+                RETAKE
+              </button> 
+              <button onClick = {()=> navigate(`/laselfie/${backendResults[0]._id}`, { state: { backendData: backendResults }} ) } className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200 mx-2'>
+                LEARN MORE
+              </button>
+            </div>
           </div>
           <div className='mx-16 pt-8'>
             <h1 className='font-avenir font-bold'>OTHER MATCHES</h1>
@@ -146,11 +151,11 @@ const LaSelfie = () => {
             <div className='flex justify-around'>
             { backendResults.slice(1, 4).map((result, index) => (
               <div key={index} className={`flex flex-col items-center m-2 ${index === 2 ? 'hidden md:flex' : ''} ${index === 1 ? 'hidden sm:flex' : ''}`}>
-                <img src={result.artifacts.length > 0 ? result.artifacts[0].imageUrl : null} alt='More selfie responses'/>
+                <img src={result.artifacts.length > 0 ? result.artifacts[0].imageUrl : null} alt='More selfie responses' className='object-fit h-64'/>
                 <div className='bg-pma-light-orange w-full overflow-hidden'>
                 <h1 className='font-avenir text-sm md:text-m line-clamp-3 mt-5 mx-4'>{result.person[0].name?.en}</h1>
                 <button>
-                  <p className='font-avenir text-s text-gray-800 mx-5 mb-5 mt-2 underline'>Read More</p>
+                  <p className='font-avenir text-s text-gray-800 mx-5 mb-5 mt-2 underline'>Read Story</p>
                 </button>
               </div>
               </div>

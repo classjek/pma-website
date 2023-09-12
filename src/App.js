@@ -8,6 +8,7 @@ import IndividualStory from './components/pages/IndividualStory'
 import MisTerras from './components/pages/MisTerras'
 import IndividualPlace from './components/pages/IndividualPlace'
 import LaSelfie from './components/pages/LaSelfie'
+import IndividualPerson from './components/pages/IndividualPerson'
 import Education from './components/pages/Education'
 
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/misterras' element={<MisTerras />} />
           <Route path='/misterras/:id' element={<IndividualPlace/>} />
           <Route path='/laselfie' element={<LaSelfie />} />
+          <Route path='/laselfie/:id' element={<IndividualPerson />} />
           <Route path='/education' element={<Education />} />
         </Routes>
       </div>
