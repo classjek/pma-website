@@ -39,7 +39,7 @@ const About = () => {
       </div>
       <div className='mb-16 mx-16'>
         <h1 className='font-avenir font-bold'>MOBILE APP</h1>
-        <div className='border-t border-gray-900 my-4 w-auto'/>
+        <div className='border-t border-gray-900 mt-2 mb-4 w-auto'/>
         <div className='grid grid-cols-1 lg:grid-cols-2'>
             <div className='flex justify-around'>
               <img src='/images/appprev.png' loading='lazy' alt='' /> 

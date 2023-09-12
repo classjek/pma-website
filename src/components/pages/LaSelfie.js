@@ -112,14 +112,16 @@ const LaSelfie = () => {
     <div>
       { backendResults ? 
       <div>
-        <div className='text-center pt-10'>
-          <h1 className='font-avenir text-xl'>YOUR MATCH</h1>
-          <h1 className='font-canela text-3xl'>yo momma</h1>
+        <div className='flex justify-around pt-10'>
+          <div className='flex'>
+            <CircularProgressBar value={backendResults[0].confidence}/>
+            <div className='text-center mt-3'>
+              <h1 className='font-avenir text-xl'>YOUR MATCH</h1>
+              <h1 className='font-canela text-3xl'>{backendResults[0].person[0].name?.en}</h1>
+            </div>
+          </div>
         </div> 
         <div>
-          <div>Confidence: {backendResults[0].confidence}</div>
-          <CircularProgressBar value={backendResults[0].confidence}/>
-          <div>Something should be here: {backendResults[0].artifacts[0].title?.en}</div>
           <div className='flex justify-around'>
             <div className='flex'>
               <img src={URL.createObjectURL(takenPictureBlob)} alt="Captured" className='-scale-x-100 w-96 object-contain' />
@@ -127,7 +129,34 @@ const LaSelfie = () => {
             </div>
           </div>
         </div>
-        <div>{backendResults[0]._id}</div>
+          <div className='font-avenir text-center mt-10 px-12 md:px-48'>
+            {backendResults[0].person[0].description?.en}
+          </div>
+          <div className='flex justify-around'>
+            <button className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200'>
+              LEARN MORE
+            </button> 
+          </div>
+          <div className='flex justify-center'>
+            <button>RETAKE</button>
+          </div>
+          <div className='mx-16 pt-8'>
+            <h1 className='font-avenir font-bold'>OTHER MATCHES</h1>
+            <div className='border-t border-gray-900 mt-2 mb-4 w-auto'/>
+            <div className='flex justify-around'>
+            { backendResults.slice(1, 4).map((result, index) => (
+              <div key={index} className={`flex flex-col items-center m-2 ${index === 2 ? 'hidden md:flex' : ''} ${index === 1 ? 'hidden sm:flex' : ''}`}>
+                <img src={result.artifacts.length > 0 ? result.artifacts[0].imageUrl : null} alt='More selfie responses'/>
+                <div className='bg-pma-light-orange w-full overflow-hidden'>
+                <h1 className='font-avenir text-sm md:text-m line-clamp-3 mt-5 mx-4'>{result.person[0].name?.en}</h1>
+                <button>
+                  <p className='font-avenir text-s text-gray-800 mx-5 mb-5 mt-2 underline'>Read More</p>
+                </button>
+              </div>
+              </div>
+            ))}
+            </div>
+          </div>
       </div>
       : 
       <div>
