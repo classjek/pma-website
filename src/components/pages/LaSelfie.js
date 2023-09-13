@@ -140,7 +140,10 @@ const LaSelfie = () => {
               <button className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200 mx-2'>
                 RETAKE
               </button> 
-              <button onClick = {()=> navigate(`/laselfie/${backendResults[0]._id}`, { state: { backendData: backendResults }} ) } className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200 mx-2'>
+              <button onClick = {()=> {
+                  navigate(`/laselfie/${backendResults[0]._id}`, { state: { selfieData: backendResults } } ) 
+                  window.scrollTo(0,0);
+                }} className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200 mx-2'>
                 LEARN MORE
               </button>
             </div>
@@ -155,7 +158,7 @@ const LaSelfie = () => {
                 <div className='bg-pma-light-orange w-full overflow-hidden'>
                 <h1 className='font-avenir text-sm md:text-m line-clamp-3 mt-5 mx-4'>{result.person[0].name?.en}</h1>
                 <button>
-                  <p className='font-avenir text-s text-gray-800 mx-5 mb-5 mt-2 underline'>Read Story</p>
+                  <p className='font-avenir text-s text-gray-800 mx-5 mb-5 mt-2 hover:underline'>Read Story</p>
                 </button>
               </div>
               </div>
