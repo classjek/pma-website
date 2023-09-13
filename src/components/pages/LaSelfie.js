@@ -176,7 +176,7 @@ const LaSelfie = () => {
             <h1 className='font-avenir text-center'>An Heiress?</h1>
             <img src='/images/ArcadiaBandiniStearnsdeBaker.png' alt='Heiress' loading='lazy' className='max-w-xxs'/>
         </div>
-        <div className='col-span-3 text-center px-2 pb-4'>
+        <div className='col-span-3 text-center px-2 pb-2'>
             <h1 className='font-canela text-4xl'>¿Quién esta usted?</h1>
             <h2 className='font-avenir pb-3'>Take a selfie and match to a Mexican historical portrait</h2>
           { isCameraMode ? 
@@ -191,7 +191,7 @@ const LaSelfie = () => {
           <img src='/images/JoseRamonPico.png' alt='Soldier' loading='lazy' className='max-w-xxs'/>
         </div>
       </div>
-      <div className='flex justify-center pb-12'>
+      <div className='flex justify-center pb-4'>
         { isCameraMode ? 
           <button onClick={captureImage} className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200'>
           TAKE PHOTO

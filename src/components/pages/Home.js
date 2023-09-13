@@ -51,9 +51,6 @@ const Home = () => {
       <div>
         <EmailSub/>
       </div>
-      <div className='m-10'>
-        <Instagram />
-      </div>
     </div>
   )
 }

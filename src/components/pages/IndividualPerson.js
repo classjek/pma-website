@@ -21,8 +21,8 @@ const IndividualPerson = () => {
                 <h1 className='font-canela xs:text-3xl md:text-4xl'>{selfieData[0].person[0].name?.en}</h1>
                 { (display.person[0].birthYear || display.person[0].deathYear) && (
                     <div className='flex'>
-                        {display.person[0].birthYear ? <h2 className='p-1'>BORN: {display.person[0].birthYear}</h2> : <h2>BORN: ~</h2>}
-                        {display.person[0].deathYear ? <h2 className='p-1'>BORN: {display.person[0].deathYear}</h2> : <h2>BORN: ~</h2>}
+                        {display.person[0].birthYear ? <h2 className='p-1 font-avenir'>BORN: {display.person[0].birthYear}</h2> : <h2 className='p-1 font-avenir'>BORN: ~</h2>}
+                        {display.person[0].deathYear ? <h2 className='p-1 font-avenir'>DIED: {display.person[0].deathYear}</h2> : <h2 className='p-1 font-avenir'>DIED: ~</h2>}
                     </div>
                 )} 
                 <p className='font-avenir xs:text-md md:text-l pb-5 pt-2 px-48'>{selfieData[0].artifacts[0].caption?.en}</p>

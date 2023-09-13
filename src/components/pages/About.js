@@ -67,7 +67,7 @@ const About = () => {
                     We're not gonna lie: 19th century Mexican LA was neither idyllic, egalitarian, or anti-racist, but it's 
                     important to understand that it WAS here. We hope this ride untagles some of those threads.
                 </p>
-                <a href='https://linkedin.com/in/jake-ekoniak/'>Learn More</a>
+                <a href='https://www.picturingmexicanamerica.com/press'>Learn More</a>
             </div>
             <div className='flex justify-around'>
               <img src='/images/bikelogo.png' loading='lazy' alt='' />
@@ -85,7 +85,7 @@ const About = () => {
                     school students to lead them through a week of writing and creating art, drawing 
                     inspiration from the history, present, and future of LA.
                 </p>
-                <a href='https://linkedin.com/in/jake-ekoniak/'>Learn More</a>
+                <a href='https://www.picturingmexicanamerica.com/press'>Learn More</a>
             </div>
 
         </div>
