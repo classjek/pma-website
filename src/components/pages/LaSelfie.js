@@ -176,14 +176,14 @@ const LaSelfie = () => {
             <h1 className='font-avenir text-center'>An Heiress?</h1>
             <img src='/images/ArcadiaBandiniStearnsdeBaker.png' alt='Heiress' loading='lazy' className='max-w-xxs'/>
         </div>
-        <div className='col-span-3 text-center px-2'>
+        <div className='col-span-3 text-center px-2 pb-4'>
             <h1 className='font-canela text-4xl'>¿Quién esta usted?</h1>
             <h2 className='font-avenir pb-3'>Take a selfie and match to a Mexican historical portrait</h2>
           { isCameraMode ? 
-          <video ref={videoRef} autoPlay={true} className='-scale-x-100 mx-auto '></video> :
-          takenPictureBlob ? 
-          <img src={URL.createObjectURL(takenPictureBlob)} alt="Captured" className='-scale-x-100 w-60 md:max-w-smm mx-auto object-contain' /> :
-          <img src='/images/blurryface.png' alt='' loading='lazy' className=' w-60 md:max-w-smm mx-auto object-contain'/>
+            <video ref={videoRef} autoPlay={true} className='-scale-x-100 h-80 lg:h-96 mx-auto object-contain '></video> :
+            takenPictureBlob ? 
+            <img src={URL.createObjectURL(takenPictureBlob)} alt="Captured" className='-scale-x-100 h-80 lg:h-96 mx-auto object-contain' /> :
+            <img src='/images/blurryface.png' alt='' loading='lazy' className='h-80 lg:h-96 mx-auto object-contain'/>
           }
         </div>
         <div className='hidden lg:flex col-span-2 flex-col items-center justify-center pt-6'>

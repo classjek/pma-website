@@ -70,7 +70,7 @@ const IndividualPlace = () => {
                     <p className='font-avenir text-s text-center pt-8 pb-4 px-10 md:px-32'>{placeData.description?.en}</p>
                     {placeData.artifacts.length > 4 && (
                         <div className='flex justify-around align-center space-x-4 h-64 pt-5 px-20 pb-12'>
-                            {placeData.artifacts.slice(5, 8).map((artifact, index) => (
+                            {placeData.artifacts.slice(4, 8).map((artifact, index) => (
                                 <div key={index} className="relative" onClick={()=> handleArtifactClick(artifact)}>
                                     <img 
                                         src={artifact.imageUrl} 

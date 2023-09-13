@@ -48,7 +48,7 @@ const Education = () => {
                 Mexican period vs. now. The teacher leads a class discussion on what caused the changes over time.
               </p>
               <br />
-              <a href='http://linkedin.com/in/jake-ekoniak' className='flex'>
+              <a href='https://www.picturingmexicanamerica.com/' className='flex'>
                 <p className='mr-1 font-avenir text-sm'>View PDF </p>
                 <BsFiletypePdf/>
               </a>
@@ -67,7 +67,7 @@ const Education = () => {
                 Students will write a journal entry as if they wer the person in the portrait. 
               </p>
               <br />
-              <a href='http://linkedin.com/in/jake-ekoniak' className='flex'>
+              <a href='https://www.picturingmexicanamerica.com/' className='flex'>
                 <p className='mr-1 font-avenir text-sm'>View PDF </p>
                 <BsFiletypePdf/>
               </a>
@@ -88,7 +88,7 @@ const Education = () => {
                 They will have to present thier plasn to the Mexican Congress who will vote on the best one.
               </p>
               <br />
-              <a href='http://linkedin.com/in/jake-ekoniak' className='flex'>
+              <a href='https://www.picturingmexicanamerica.com/' className='flex'>
                 <p className='mr-1 font-avenir text-sm'>View PDF </p>
                 <BsFiletypePdf/>
               </a>
