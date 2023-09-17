@@ -12,7 +12,7 @@ const navigate = useNavigate();
 useEffect(() => {
   const fetchStories = async () => {
     try {
-      const res = await axios.post('http://localhost:3001/stories', {
+      const res = await axios.post('http://localhost:3001/story?numStories=3&version=37', {
         numStories: 3,
         client: {
           version: '37'
