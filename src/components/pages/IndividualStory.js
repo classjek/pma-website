@@ -5,14 +5,24 @@ import axios from "axios";
 function IndividualStory() {
     const { id } = useParams();
     const [story, setStory] = useState(null);
-
+    const [error, setError] = useState(null);
+ 
     useEffect(() => {
         async function fetchStory() {
             try {
-                const response = await axios.post(`http://localhost:3001/stories/${id}`);
+                //change to url query 
+                const response = await axios.post(`http://localhost:3001/stort?id=${id}`);
+
+                // Error handling
+                if (response.status !== 200) {
+                    setError(`Error: ${response.statusText}`);
+                    return;
+                }
+
                 setStory(response.data);
             } catch (error) {
                 console.error("Error fetching story:", error);
+                setError("There was a problem fetching the story. Please try again later.");
             }
          }
          

@@ -19,8 +19,6 @@ const IndividualPlace = () => {
         setSelectedArtifact(artifact);
         setShowPopup(true);
     }
-    
-    //do image stuff like individualStory
 
   return (
     <div>
