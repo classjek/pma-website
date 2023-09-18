@@ -11,7 +11,7 @@ function IndividualStory() {
         async function fetchStory() {
             try {
                 //change to url query 
-                const response = await axios.post(`http://localhost:3001/stort?id=${id}`);
+                const response = await axios.post(`http://localhost:3001/story?id=${id}`);
 
                 // Error handling
                 if (response.status !== 200) {

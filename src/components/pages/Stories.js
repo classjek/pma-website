@@ -16,7 +16,7 @@ const Stories = () => {
     const fetchStories = async () => {
       setLoading(true);
       try {
-        const res = await axios.post(`http://localhost:3001/stort?page=${page}&numStories=20&version=37`);
+        const res = await axios.post(`http://localhost:3001/story?page=${page}&numStories=20&version=37`);
 
         console.log("fetched stories", res.data)
         setStories(res.data); 

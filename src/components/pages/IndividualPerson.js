@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -6,10 +6,19 @@ const IndividualPerson = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const selfieData = location.state.selfieData;
+    const selfieData = location.state?.selfieData;
     const { id } = useParams();
+
+    const [display, setDisplay] = useState(null);
     // Set display the the requested item
-    const display = selfieData.find(item => item._id === id);
+    // const display = selfieData.find(item => item._id === id);
+
+    useEffect(() => {
+      if(selfieData) {
+        const foundItem = selfieData.find(item => item.id === id);
+        setDisplay(foundItem);
+      }
+    }, [])
 
   return (
     <div>
