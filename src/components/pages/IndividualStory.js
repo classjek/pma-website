@@ -1,33 +1,41 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 
 function IndividualStory() {
     const { id } = useParams();
     const [story, setStory] = useState(null);
     const [error, setError] = useState(null);
+
+    const location = useLocation();
+    const storyData = location.state;
  
     useEffect(() => {
-        async function fetchStory() {
-            try {
-                //change to url query 
-                const response = await axios.post(`http://localhost:3001/story?id=${id}`);
+        // if data was passed from previous page
+        if(storyData){
+            setStory(storyData);
+        }
+        // Page navigated to manually -> no data passed
+        else {
+            async function fetchStory() {
+                try {
+                    const response = await axios.post(`http://localhost:3001/story?id=${id}`);
 
-                // Error handling
-                if (response.status !== 200) {
-                    setError(`Error: ${response.statusText}`);
-                    return;
+                    // Error handling
+                    if (response.status !== 200) {
+                        setError(`Error: ${response.statusText}`);
+                        return;
+                    }
+
+                    setStory(response.data);
+                } catch (error) {
+                    console.error("Error fetching story:", error);
+                    setError("There was a problem fetching the story. Please try again later.");
                 }
-
-                setStory(response.data);
-            } catch (error) {
-                console.error("Error fetching story:", error);
-                setError("There was a problem fetching the story. Please try again later.");
-            }
-         }
-         
-         fetchStory();
-    }, [id]);
+             }
+            fetchStory();
+        }
+    }, [id, storyData]);
 
     return (
         <div>
@@ -42,6 +50,7 @@ function IndividualStory() {
                     <div className='border-t border-gray-900 my-4 w-auto mx-10 md:mx-20 pb-10'/>
                 </div>
             ) : (
+                // Display error state
                 <p>Loading...</p>
             )}
         </div>

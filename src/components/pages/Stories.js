@@ -58,7 +58,7 @@ const Stories = () => {
           stories.map((s) => (
             <div key={s._id} className='flex flex-col items-center'>
               <img src={s.imageUrls.length > 0 ? s.imageUrls[0] : null} alt="" className=' h-48 w-auto'/>
-              <button onClick={ ()=> navigate(`/stories/${s._id}`)}>
+              <button onClick={ ()=> navigate(`/stories/${s._id}`, {state: s})}>
                 <h1 className='font-canela text-lg p-1'>Temp Title</h1>
               </button>
               <p className='font-avenir text-xs text-gray-600'>July 28th, 2023</p>

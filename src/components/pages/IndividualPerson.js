@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useParams, useNavigate } from 'react-router-dom'
 
 const IndividualPerson = () => {
 
@@ -14,11 +13,16 @@ const IndividualPerson = () => {
     // const display = selfieData.find(item => item._id === id);
 
     useEffect(() => {
+      // if user came here from La Selfie and selfieData exists
       if(selfieData) {
         const foundItem = selfieData.find(item => item.id === id);
         setDisplay(foundItem);
+      } 
+      // if selfie data doesn't exist, make API call 
+      else { 
+        // Gotta create getPersonById function
       }
-    }, [])
+    }, [id, selfieData])
 
   return (
     <div>
