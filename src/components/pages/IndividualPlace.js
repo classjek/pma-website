@@ -11,32 +11,25 @@ const IndividualPlace = () => {
     const [selectedArtifact, setSelectedArtifact] = useState(null);
     const [place, setPlace] = useState(null);
     const { id } = useParams();
-    console.log('id', id);
-
-    console.log('Passed Data', placeData);
-    //console.log('Artifacts', placeData.artifacts);
 
     useEffect(()=> {
         // if data was passed from previous page
         if(placeData){
             setPlace(placeData);
-            console.log(placeData);
         }
         // page navigated to manually -> request data
         else {
-            console.log('no data passed from previous page, attempt api call')
             async function fetchPlace(){
                 try {
                     const response = await axios.post(`http://localhost:3001/place?version=37&id=${id}`);
-                    setPlace(response.data);
-                    console.log('fronted place response', response.data);
+                    setPlace(response.data[0]);
                 } catch (error) {
                     console.error("Failed to fetch place:", error);
                 }
             }
             fetchPlace();
         }
-    }, [placeData])
+    }, [0])
 
     const handleArtifactClick = (artifact) => {
         if(artifact.caption?.en.length < 4){
@@ -48,20 +41,20 @@ const IndividualPlace = () => {
 
   return (
     <div>
-      {placeData && (
+      {place && (
         <div>
             <div>
-            {placeData ? (
+            {place ? (
                 <div className='flex flex-col'>
                     <div className='bg-pma-green flex flex-col items-center text-white'>
-                        <img src={placeData.artifacts[0].imageUrl} alt={placeData.artifacts[0].title?.en} onClick={()=> handleArtifactClick(placeData.artifacts[0])} className='h-96 md:h-124 p-5 pt-10'/>
-                        <h1 className='font-canela xs:text-3xl md:text-4xl pb-5'>{placeData.name?.en}</h1>
+                        <img src={place.artifacts[0].imageUrl} alt={place.artifacts[0].title?.en} onClick={()=> handleArtifactClick(place.artifacts[0])} className='h-96 md:h-124 p-5 pt-10'/>
+                        <h1 className='font-canela xs:text-3xl md:text-4xl pb-5'>{place.name?.en}</h1>
                     </div>
                     
                     {/* Display the next 3 artifacts if they exist*/}
-                    {placeData.artifacts.length > 1 && (
+                    {place.artifacts.length > 1 && (
                         <div className='flex justify-around align-center space-x-4 h-64 pt-5 px-20'>
-                            {placeData.artifacts.slice(1, 4).map((artifact, index) => (
+                            {place.artifacts.slice(1, 4).map((artifact, index) => (
                                 <div key={index} className="relative" onClick={()=> handleArtifactClick(artifact)}>
                                     <img 
                                         src={artifact.imageUrl} 
@@ -91,10 +84,10 @@ const IndividualPlace = () => {
                         </div>
                     )}
 
-                    <p className='font-avenir text-s text-center pt-8 pb-4 px-10 md:px-32'>{placeData.description?.en}</p>
-                    {placeData.artifacts.length > 4 && (
+                    <p className='font-avenir text-s text-center pt-8 pb-4 px-10 md:px-32'>{place.description?.en}</p>
+                    {place.artifacts.length > 4 && (
                         <div className='flex justify-around align-center space-x-4 h-64 pt-5 px-20 pb-12'>
-                            {placeData.artifacts.slice(4, 8).map((artifact, index) => (
+                            {place.artifacts.slice(4, 8).map((artifact, index) => (
                                 <div key={index} className="relative" onClick={()=> handleArtifactClick(artifact)}>
                                     <img 
                                         src={artifact.imageUrl} 

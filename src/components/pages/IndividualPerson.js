@@ -14,9 +14,7 @@ const IndividualPerson = () => {
     useEffect(() => {
       // if user came here from La Selfie and selfieData exists
       if(selfieData) {
-        console.log('Selfie data passed from previous page');
         const foundItem = selfieData.find(item => item.person[0]._id === id);
-        console.log('foundItem', foundItem);
         setDisplayPerson(foundItem.person[0]);
         setDisplayArtifacts(foundItem.artifacts);
       } 
@@ -25,7 +23,6 @@ const IndividualPerson = () => {
         async function fetchPerson(){
           try {
             const response = await axios.post(`http://localhost:3001/person?id=${id}`);
-            console.log('RESPONSE RAW', response);
             setDisplayPerson(response.data[0]);
             setDisplayArtifacts(response.data[0].artifacts);
           } catch (error){
