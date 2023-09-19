@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
+import axios from 'axios';
 
 const IndividualPlace = () => {
 
@@ -8,9 +9,34 @@ const IndividualPlace = () => {
 
     const [showPopup, setShowPopup] = useState(false);
     const [selectedArtifact, setSelectedArtifact] = useState(null);
+    const [place, setPlace] = useState(null);
+    const { id } = useParams();
+    console.log('id', id);
 
     console.log('Passed Data', placeData);
-    console.log('Artifacts', placeData.artifacts);
+    //console.log('Artifacts', placeData.artifacts);
+
+    useEffect(()=> {
+        // if data was passed from previous page
+        if(placeData){
+            setPlace(placeData);
+            console.log(placeData);
+        }
+        // page navigated to manually -> request data
+        else {
+            console.log('no data passed from previous page, attempt api call')
+            async function fetchPlace(){
+                try {
+                    const response = await axios.post(`http://localhost:3001/place?version=37&id=${id}`);
+                    setPlace(response.data);
+                    console.log('fronted place response', response.data);
+                } catch (error) {
+                    console.error("Failed to fetch place:", error);
+                }
+            }
+            fetchPlace();
+        }
+    }, [placeData])
 
     const handleArtifactClick = (artifact) => {
         if(artifact.caption?.en.length < 4){
