@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
+import axios from "axios";
 
 const IndividualPerson = () => {
 
@@ -7,41 +8,54 @@ const IndividualPerson = () => {
     const navigate = useNavigate();
     const selfieData = location.state?.selfieData;
     const { id } = useParams();
-
-    const [display, setDisplay] = useState(null);
-    // Set display the the requested item
-    // const display = selfieData.find(item => item._id === id);
+    const [displayPerson, setDisplayPerson] = useState(null);
+    const [displayArtifacts, setDisplayArtifacts] = useState(null);
 
     useEffect(() => {
       // if user came here from La Selfie and selfieData exists
       if(selfieData) {
-        const foundItem = selfieData.find(item => item.id === id);
-        setDisplay(foundItem);
+        console.log('Selfie data passed from previous page');
+        const foundItem = selfieData.find(item => item.person[0]._id === id);
+        console.log('foundItem', foundItem);
+        setDisplayPerson(foundItem.person[0]);
+        setDisplayArtifacts(foundItem.artifacts);
       } 
       // if selfie data doesn't exist, make API call 
       else { 
-        // Gotta create getPersonById function
+        async function fetchPerson(){
+          try {
+            const response = await axios.post(`http://localhost:3001/person?id=${id}`);
+            console.log('RESPONSE RAW', response);
+            setDisplayPerson(response.data[0]);
+            setDisplayArtifacts(response.data[0].artifacts);
+          } catch (error){
+              console.error("Error fetching person", error);
+          }
+        }
+        fetchPerson();
       }
-    }, [id, selfieData])
+    }, [id, selfieData]);
 
-  return (
-    <div>
-        {/* change this to something else because individualdata might exist but be bad */}
-      { selfieData ? (
-        <div className='flex flex-col'>
+    return (
+      <div>
+          {/* change this to something else because individualdata might exist but be bad */}
+        { displayPerson && displayArtifacts ? (
+          <div className='flex flex-col'>
             <div className='bg-pma-green flex flex-col items-center text-white text-center'>
-                <img src={display.artifacts[0].imageUrl} alt={display.artifacts[0].title?.en} className='h-96 md:h-124 p-5 pt-10'/>
-                <h1 className='font-canela xs:text-3xl md:text-4xl'>{selfieData[0].person[0].name?.en}</h1>
-                { (display.person[0].birthYear || display.person[0].deathYear) && (
+                <img src={displayArtifacts[0].imageUrl} alt={displayArtifacts[0].title?.en} className='h-96 md:h-124 p-5 pt-10'/>
+                <h1 className='font-canela xs:text-3xl md:text-4xl'>{displayPerson.name?.en}</h1>
+                { (displayPerson.birthYear || displayPerson.deathYear) && (
                     <div className='flex'>
-                        {display.person[0].birthYear ? <h2 className='p-1 font-avenir'>BORN: {display.person[0].birthYear}</h2> : <h2 className='p-1 font-avenir'>BORN: ~</h2>}
-                        {display.person[0].deathYear ? <h2 className='p-1 font-avenir'>DIED: {display.person[0].deathYear}</h2> : <h2 className='p-1 font-avenir'>DIED: ~</h2>}
+                        {displayPerson.birthYear ? <h2 className='p-1 font-avenir'>BORN: {displayPerson.birthYear}</h2> : <h2 className='p-1 font-avenir'>BORN: ~</h2>}
+                        {displayPerson.deathYear ? <h2 className='p-1 font-avenir'>DIED: {displayPerson.deathYear}</h2> : <h2 className='p-1 font-avenir'>DIED: ~</h2>}
                     </div>
                 )} 
-                <p className='font-avenir xs:text-md md:text-l pb-5 pt-2 px-48'>{selfieData[0].artifacts[0].caption?.en}</p>
+                <p className='font-avenir xs:text-md md:text-l pb-5 pt-2 px-48'>{displayArtifacts[0].caption?.en}</p>
             </div>
             <div className='mx-16'>
-                <p className='font-avenir text-s text-center pt-8 pb-4 px-10 md:px-32'>{selfieData[0].person[0].description?.en}</p>
+                <p className='font-avenir text-s text-center pt-8 pb-4 px-10 md:px-32'>{displayPerson.description?.en}</p>
+                { selfieData && 
+                <div>
                 <h1 className='font-avenir font-bold'>OTHER MATCHES</h1>
                 <div className='border-t border-gray-900 mt-2 mb-4 w-auto'/>
                 <div className='flex justify-around'>
@@ -51,7 +65,7 @@ const IndividualPerson = () => {
                         <div className='bg-pma-light-orange w-full overflow-hidden'>
                         <h1 className='font-avenir text-sm md:text-m line-clamp-3 mt-5 mx-4'>{result.person[0].name?.en}</h1>
                         <button onClick = {() => {
-                            navigate(`/laselfie/${result._id}`, { state: { selfieData: selfieData } } ) 
+                            navigate(`/laselfie/${result.person[0]._id}`, { state: { selfieData: selfieData } } ) 
                             window.scrollTo(0,0);
                         }}>
                             <p className='font-avenir text-s text-gray-800 mx-5 mb-5 mt-2 hover:underline'>Read Story</p>
@@ -59,7 +73,9 @@ const IndividualPerson = () => {
                     </div>
                     </div>
                     ))}
-                </div>      
+                </div>   
+                </div>
+              } 
             </div>
         </div>
       )
