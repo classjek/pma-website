@@ -29,7 +29,7 @@ const IndividualPlace = () => {
             }
             fetchPlace();
         }
-    }, [0])
+    }, [id, placeData])
 
     const handleArtifactClick = (artifact) => {
         if(artifact.caption?.en.length < 4){

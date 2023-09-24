@@ -50,8 +50,13 @@ function IndividualStory() {
                     <div className='border-t border-gray-900 my-4 w-auto mx-10 md:mx-20 pb-10'/>
                 </div>
             ) : (
-                // Display error state
-                <p>Loading...</p>
+                <div>
+                    { error ? (
+                        <div className='font-avenir'>{error}</div>
+                    ) : (
+                        <p className='font-avenir'>Loading...</p>
+                    )}
+                </div>
             )}
         </div>
     )
