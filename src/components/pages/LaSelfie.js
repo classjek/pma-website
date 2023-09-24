@@ -42,6 +42,13 @@ const LaSelfie = () => {
     }
   };
 
+  // Reset camera after picture is taken
+  const resetCameraState = () => {
+    setTakenPictureBlob(null);
+    setSelfieData(null);
+    setIsCameraMode(true);
+  }
+
   // Take a picture in blob format
   const captureImage = () => {
     if(videoRef.current.readyState === videoRef.current.HAVE_ENOUGH_DATA) {
@@ -137,7 +144,7 @@ const LaSelfie = () => {
           </div>
           <div className='flex justify-around'>
             <div>
-              <button className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200 mx-2'>
+              <button onClick={resetCameraState} className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200 mx-2'>
                 RETAKE
               </button> 
               <button onClick = {()=> {
