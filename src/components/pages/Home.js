@@ -1,9 +1,9 @@
 import React from 'react'
 import EmailSub from '../EmailSub'
-import Instagram from '../Instagram'
 import StoryWidget from '../widgets/StoryWidget'
 import { FiArrowRight } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
+// import Instagram from '../Instagram'
 
 const Home = () => {
 
