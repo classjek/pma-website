@@ -44,7 +44,7 @@ const MisTerras = () => {
   useEffect(() => {
     const fetchMarkers = async () => {
       try {
-        const res = await axios.post(`http://localhost:3001/places`, {
+        const res = await axios.post(`https://pma-backend.herokuapp.com/places`, {
             client: {
                 version: '37' // Set version to 35 or more
               },

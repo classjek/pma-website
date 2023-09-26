@@ -19,7 +19,7 @@ function IndividualStory() {
         else {
             async function fetchStory() {
                 try {
-                    const response = await axios.post(`http://localhost:3001/story?id=${id}`);
+                    const response = await axios.post(`https://pma-backend.herokuapp.com/story?id=${id}`);
 
                     // Error handling
                     if (response.status !== 200) {

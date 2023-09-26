@@ -21,7 +21,7 @@ const IndividualPlace = () => {
         else {
             async function fetchPlace(){
                 try {
-                    const response = await axios.post(`http://localhost:3001/place?version=37&id=${id}`);
+                    const response = await axios.post(`https://pma-backend.herokuapp.com/place?version=37&id=${id}`);
                     setPlace(response.data[0]);
                 } catch (error) {
                     console.error("Failed to fetch place:", error);

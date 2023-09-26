@@ -22,7 +22,7 @@ const IndividualPerson = () => {
       else { 
         async function fetchPerson(){
           try {
-            const response = await axios.post(`http://localhost:3001/person?id=${id}`);
+            const response = await axios.post(`https://pma-backend.herokuapp.com/person?id=${id}`);
             setDisplayPerson(response.data[0]);
             setDisplayArtifacts(response.data[0].artifacts);
           } catch (error){

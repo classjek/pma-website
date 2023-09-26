@@ -88,7 +88,7 @@ const LaSelfie = () => {
         formData.append('version', '36');
 
         // Send the object to the backend
-        const res = await axios.post('http://localhost:3001/facesnatch', formData);
+        const res = await axios.post('https://pma-backend.herokuapp.com/facesnatch', formData);
 
         console.log('Backend Response:', res.data);
         setSelfieData(res.data);
