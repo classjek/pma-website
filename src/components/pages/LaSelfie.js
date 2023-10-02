@@ -202,8 +202,8 @@ const LaSelfie = () => {
       </div>
       <div className='flex justify-center pb-4'>
         { isCameraMode ? 
-          <button onClick={captureImage} className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200'>
-          TAKE PHOTO
+          <button onClick={captureImage} className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-6 rounded mt-4 transition duration-200'>
+            <img src='/icons/camera.png' alt='camera' className='h-8 w-8'/>
           </button> 
           :
           takenPictureBlob ? 

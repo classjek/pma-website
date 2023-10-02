@@ -38,11 +38,11 @@ export const Footer = () => {
         </li>
       </div>  
       <div className='hidden md:flex flex-col px-4 mt-12 mr-8'>
-        <div className='flex justify-between ml-10 mb-3'>
+        <div className='flex justify-between items-center ml-10 mb-3'>
           <a href='https://www.instagram.com/picturingmexicanamerica'><img src='/icons/instagram.svg' alt='' className='text-white'/></a>
           <a href='https://www.facebook.com/picturingmexicanamerica'><img src='/icons/youtube.svg' alt='' className='text-white'/></a>
           <a href='https://www.youtube.com/channel/UCeuIC2BpuyY0yTau7OCwvCA'><img src='/icons/facebook.svg' alt='' className='text-white'/></a>
-          <a href='https://www.twitter.com/picturingmexam?lang=en'><img src='/icons/twitter.svg' alt='' className='text-white'/></a>
+          <a href='https://www.twitter.com/picturingmexam?lang=en'><img src='/icons/twitter-x.svg' alt='' className='text-white'/></a>
         </div>
         <div className='hidden md:flex text-x text-white'>
           <p className='px-1'>Picturing Mexican America</p>
