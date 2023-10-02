@@ -12,7 +12,7 @@ const navigate = useNavigate();
 useEffect(() => {
   const fetchStories = async () => {
     try {
-      const res = await axios.post('http://localhost:3001/story?numStories=3&version=37', {
+      const res = await axios.post('https://pma-backend.herokuapp.com/story?numStories=3&version=37', {
         numStories: 3,
         client: {
           version: '37'
