@@ -22,32 +22,20 @@ const Education = () => {
             and related archival material. Coming soon - but if you are a teacher interested in working with us or designing 
             assignments around our content, please use the "Contact" form to be in touch.
           </p>
-          <br/>
-          <p className='font-avenir'>
-            Right now we currently only have lesson plans for fourth grade; however, we are actively working towards expanding 
-            the curriculum beyond the elementary level. If you are a teacher interested in working with us or would like be involved 
-            in designing assignments and lesson plans around our content, please contact us.
-          </p>
         </div>
       </div>
       <div className='px-20 mt-5'>
-        <h1 className='font-canela text-2xl'>Sample Lesson Plans for Fourth Grade</h1>
+        <h1 className='font-canela text-2xl'>Sample Lesson Plans</h1>
         <div className='border-t border-gray-900 mb-6 w-auto'/>
+        <h1 className='font-canela text-xl mb-1'>Fourth Grade</h1>
         <div className='flex flex-col'>
           <div className=' bg-pma-pink mb-5'>
             <div className='m-8'>
-              <h1 className='text-xl mb-4 font-avenir font-bold'>Mis Tierras (My Land)</h1>
+              <h1 className='text-xl mb-2 font-avenir font-bold'>Mis Tierras (My Land)</h1>
+              <h1 className='text-xl mb-4 font-avenir font-bold'>4th Grade</h1>
               <p className='font-avenir'>
-                <b>Objectives:</b> Students will locate the rancho that is closet to their neighborhood and compare 
-                the land usage during the Mexican period of California history and present day.
+                {/* to be added */}
               </p>
-              <br />
-              <p className='font-avenir'>
-                <b>Summary:</b> Students use the Mis Terras (My Land) feature to locate their neighborhood. Students 
-                complete a double bubble thinking map or venn diagram comparing and contrasting the land during the 
-                Mexican period vs. now. The teacher leads a class discussion on what caused the changes over time.
-              </p>
-              <br />
               <a href='https://www.picturingmexicanamerica.com/' className='flex'>
                 <p className='mr-1 font-avenir text-sm'>View PDF </p>
                 <BsFiletypePdf/>
@@ -56,17 +44,11 @@ const Education = () => {
           </div>
           <div className=' bg-pma-pink mb-5'>
             <div className='m-8'>
-              <h1 className='text-xl mb-4 font-avenir font-bold'>LA Selfie</h1>
+              <h1 className='text-xl mb-2 font-avenir font-bold'>LA Selfie</h1>
+              <h1 className='text-xl mb-4 font-avenir font-bold'>4th Grade</h1>
               <p className='font-avenir'>
-                <b>Objectives:</b> Students will assume the identity of an important figure in Mexican America and 
-                will demonstrate their knowledge of life in Mexican America by writing a journal entry.
+                { /* to be added */}
               </p>
-              <br />
-              <p className='font-avenir'>
-                <b>Summary:</b> Students us ethe LA Selfie feature to take a selfie and match to a Mexican Historical portrait. 
-                Students will write a journal entry as if they wer the person in the portrait. 
-              </p>
-              <br />
               <a href='https://www.picturingmexicanamerica.com/' className='flex'>
                 <p className='mr-1 font-avenir text-sm'>View PDF </p>
                 <BsFiletypePdf/>
@@ -75,19 +57,11 @@ const Education = () => {
           </div>
           <div className=' bg-pma-pink mb-5'>
             <div className='m-8'>
-              <h1 className='text-xl mb-4 font-avenir font-bold'>Simulation: Redistributing Mission Lands</h1>
+              <h1 className='text-xl mb-2 font-avenir font-bold'>Simulation: Redistributing Mission Lands</h1>
+              <h1 className='text-xl mb-4 font-avenir font-bold'>4th Grade</h1>
               <p className='font-avenir'>
-                <b>Objectives:</b> Students will use their knowledge of secularization to come up with a 
-                a plan to present to Mexican Congress
+                {/* to be added */}
               </p>
-              <br />
-              <p className='font-avenir'>
-                <b>Summary:</b> This lessons should be taught ofer 3-4 days. Students will be assigned the identity 
-                of an important figure in Mexican American through the LA Selfie feature in the Picturing Mexican 
-                American app and will work in teams to devise plans for secularizing and redistributing mission lands. 
-                They will have to present thier plasn to the Mexican Congress who will vote on the best one.
-              </p>
-              <br />
               <a href='https://www.picturingmexicanamerica.com/' className='flex'>
                 <p className='mr-1 font-avenir text-sm'>View PDF </p>
                 <BsFiletypePdf/>
@@ -95,15 +69,38 @@ const Education = () => {
             </div>  
           </div>
         </div>
-      </div>
-      <div className='mx-10 px-8 xs:py-10 md:py-20'>
-        <h1 className='font-avenir font-bold'>NEWEST STORIES</h1>
-        <div className='border-t border-gray-900 mb-6 mt-2 w-auto'/>
-        <StoryWidget/>
-        <button onClick={ () => navigate('/stories')} className='flex hover:underline'>
-          <h1 className='font-avenir text-lg text-gray-600 mt-8'>More Stories</h1>
-          <FiArrowRight className='text-xl text-gray-600 mt-9'/>
-        </button>
+        <h1 className='font-canela text-xl mb-1 mt-2'>Middle School</h1>
+        <div className='flex flex-col'>
+          <div className=' bg-pma-pink mb-5'>
+            <div className='m-8'>
+              <h1 className='text-xl mb-2 font-avenir font-bold'>Simulation: Redistributing Mission Lands</h1>
+              <h1 className='text-xl mb-4 font-avenir font-bold'>8th Grade</h1>
+              <p className='font-avenir'>
+                { /* to be added */}
+              </p>
+              <a href='https://www.picturingmexicanamerica.com/' className='flex'>
+                <p className='mr-1 font-avenir text-sm'>View PDF </p>
+                <BsFiletypePdf/>
+              </a>
+            </div>  
+          </div>
+        </div>
+        <h1 className='font-canela text-xl mb-1 mt-2'>High School</h1>
+        <div className='flex flex-col'>
+          <div className=' bg-pma-pink mb-5'>
+            <div className='m-8'>
+              <h1 className='text-xl mb-2 font-avenir font-bold'>Simulation: Redistributing Mission Lands</h1>
+              <h1 className='text-xl mb-4 font-avenir font-bold'>10th Grade</h1>
+              <p className='font-avenir'>
+                { /* to be added */}
+              </p>
+              <a href='https://www.picturingmexicanamerica.com/' className='flex'>
+                <p className='mr-1 font-avenir text-sm'>View PDF </p>
+                <BsFiletypePdf/>
+              </a>
+            </div>  
+          </div>
+        </div>
       </div>
     </div>
   )
