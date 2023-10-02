@@ -9,7 +9,7 @@ const About = () => {
           </h1>
         <div className='mt-8'>
           <p1 className='text-s'>
-              Picturing Mexican America is a cluster of digital humanities projects designed and run by Professor Marissa L0pez of UCLA. We are 
+              Picturing Mexican America is a cluster of digital humanities projects designed and run by Professor Marissa López of UCLA. We are 
               committed to illuminating the long, Mexican history of Los Angeles that's been systemically erased through centuries of white, cultural
               supremacy. At PMA's core is a mobile app in current development being built in collaboration with the Los Angeles Public Library, that will
               display image of 19th century, Mexican Los Angeles to users based on their location. PMA is a research and teaching hub open to partnerships
@@ -24,16 +24,16 @@ const About = () => {
         <div>
             <h1 className='font-canela text-3xl'>Who We Are</h1>
             <p1 className='font-avenir'>
-                We're a group of educators, students, volunteers, journalists, and tech professionals 
-                working to build PMA so that people all over the world can feel connected to the stories 
-                we are telling.
+                PMA was founded by Professor Marissa López(UCLA) who works with students, educators, volunteers, journalists,
+                and tech professionals invested in giving people the tools they need to tell new stories about 
+                themselves and the cities they live in.
             </p1>
         </div>
         <div>
             <h1 className='font-canela text-3xl'>What's Next</h1>
             <p1 className='font-avenir'>
-                We're currently working to build more educational plans to support teachers as well as finalizing 
-                our app to get it ready for launch! We're also hoping to expand our work beyond LA!
+                We're hard at work on our app, which is almost ready to launch, and we're creating more lesson plans
+                 to support teachers. We hope to expand our work beyond Los Angeles and are eager to partner with you.
             </p1>
         </div>
       </div>
@@ -48,10 +48,8 @@ const About = () => {
                 <h2 className='font-avenir mb-1'>COMING SOON</h2>
                 <h1 className='font-canela text-2xl'>We're building an app!</h1>
                 <p1 className='mt-4 font-avenir'>
-                    The core project of Picturing Mexican America is to develop an app, in partnership with the Los Angeles 
-                    Public Library, that will use geodata to display images of 19th century Mexican Los Angeles to users. 
-                    This includes photographs, maps, and historical documents. Our goal is to change users' perceptions 
-                    of space, to make clear the consistent, enduring presence of Latinxs in the United States.
+                  At PMA’s core is a mobile app, which we are developing in collaboration with the Los Angeles Public Library,
+                   that will display images of 19th century, Mexican Los Angeles to users based on their location.
                 </p1>
             </div>
         </div>
