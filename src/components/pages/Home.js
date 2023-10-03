@@ -1,6 +1,6 @@
 import React from 'react'
 import EmailSub from '../EmailSub'
-import StoryWidget from '../widgets/StoryWidget'
+import StoryOfWeek from '../widgets/StoryOfWeek'
 import { FiArrowRight } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
 // import Instagram from '../Instagram'
@@ -18,19 +18,14 @@ const Home = () => {
         <h1 className='font-canela xs:text-3xl md:text-4xl text-center mb-4'>Recovering LA's Erased Mexican History</h1>
         <p className='font-avenir text-md text-center'>
           Welcome! Picturing Mexican America is a cluster of Digital humanities projects
-           designed and run by Professor Marissa L0pez at UCLA. We're looking back at the 
+           designed and run by Professor Marissa López at UCLA. We're looking back at the 
            history of Mexican Los Angeles to help us understand our present and undo the 
            systemic erasure of Los Angeles' Mexican past-in a fun way!
           </p>
       </div>
-      <div className='mx-10 px-8 xs:py-10 md:py-16'>
-        <h1 className='font-avenir font-bold'>POPULAR STORIES</h1>
-        <div className='border-t border-gray-900 mb-6 mt-2 w-auto'/>
-        <StoryWidget/>
-        <button onClick={ () => navigate('/stories')} className='flex hover:underline'>
-          <h1 className='font-avenir text-lg text-gray-600 mt-8'>More Stories</h1>
-          <FiArrowRight className='text-xl text-gray-600 mt-9'/>
-        </button>
+      <div className=' h-96 bg-pma-green' />
+      <div className='relative bg-white h-40'>
+        <StoryOfWeek />
       </div>
       <div className='overflow-hidden relative flex items-center'>
         <img src='/images/home2crop.png' alt='' className='w-full object-cover'/>
