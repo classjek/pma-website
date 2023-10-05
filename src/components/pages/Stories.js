@@ -61,11 +61,12 @@ const Stories = () => {
               <button onClick={ ()=> navigate(`/stories/${s._id}`, {state: s})}>
                 <h1 className='font-canela text-lg p-1'>Temp Title</h1>
               </button>
-              <p className='font-avenir text-xs text-gray-600'>July 28th, 2023</p>
             </div>
           ))
         ) : (
-          <p>loading...</p>
+          <div className=' h-96'>
+            <p>loading...</p>
+          </div>
         )}
       </div>
       <div className='border-t border-gray-900 m mb-4 w-auto'/>
