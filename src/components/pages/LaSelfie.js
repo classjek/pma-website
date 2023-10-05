@@ -88,10 +88,16 @@ const LaSelfie = () => {
         formData.append('version', '36');
 
         // Send the object to the backend
-        const res = await axios.post('https://pma-backend.herokuapp.com/facesnatch', formData);
+        const res = await axios.post('https://pma-backend.herokuapp.com/facematch', formData);
 
-        console.log('Backend Response:', res.data);
-        setSelfieData(res.data);
+        // Remove duplicates from response
+        const uniqueMatches = res.data.matches.filter((match, index, self) =>
+            index === self.findIndex((m) => m.person._id === match.person._id)
+        );
+
+        console.log('Unique matches:', uniqueMatches);
+
+        setSelfieData(uniqueMatches);
     } catch (error) {
         console.error('Error sending data to backend:', error);
     }
@@ -127,7 +133,7 @@ const LaSelfie = () => {
             <CircularProgressBar value={selfieData[0].confidence}/>
             <div className='text-center mt-3'>
               <h1 className='font-avenir text-xl'>YOUR MATCH</h1>
-              <h1 className='font-canela text-3xl'>{selfieData[0].person[0].name?.en}</h1>
+              <h1 className='font-canela text-3xl'>{selfieData[0].person.name?.en}</h1>
             </div>
           </div>
         </div> 
@@ -135,12 +141,12 @@ const LaSelfie = () => {
           <div className='flex justify-around'>
             <div className='flex'>
               <img src={URL.createObjectURL(takenPictureBlob)} alt="Captured" className='-scale-x-100 w-96 object-contain' />
-              <img src={selfieData[0].artifacts.length > 0 ? selfieData[0].artifacts[0].imageUrl : null} alt="" className='w-96 object-contain'/>
+              <img src={selfieData[0].person.artifacts.length > 0 ? selfieData[0].person.artifacts[0].imageUrl : null} alt="" className='w-96 object-contain'/>
             </div>
           </div>
         </div>
           <div className='font-avenir text-center mt-6 px-12 md:px-48'>
-            {selfieData[0].person[0].description?.en}
+            {selfieData[0].person.description?.en}
           </div>
           <div className='flex justify-around'>
             <div>
@@ -148,7 +154,7 @@ const LaSelfie = () => {
                 RETAKE
               </button> 
               <button onClick = {()=> {
-                  navigate(`/laselfie/${selfieData[0].person[0]._id}`, { state: { selfieData: selfieData } } );
+                  navigate(`/laselfie/${selfieData[0].person._id}`, { state: { selfieData: selfieData } } );
                   console.log('Passed Data', selfieData);
                   window.scrollTo(0,0);
                 }} className='bg-pma-orange hover:bg-pma-orange-dark text-white font-bold py-2 px-4 rounded mt-4 transition duration-200 mx-2'>
@@ -160,14 +166,14 @@ const LaSelfie = () => {
             <h1 className='font-avenir font-bold'>OTHER MATCHES</h1>
             <div className='border-t border-gray-900 mt-2 mb-4 w-auto'/>
             <div className='flex justify-around'>
-            { selfieData.slice(1, 4).map((result, index) => (
+            { selfieData.slice(1, 5).map((result, index) => (
               <div key={index} className={`flex flex-col items-center m-2 ${index === 2 ? 'hidden md:flex' : ''} ${index === 1 ? 'hidden sm:flex' : ''}`}>
-                <img src={result.artifacts.length > 0 ? result.artifacts[0].imageUrl : null} alt='More selfie responses' className='object-fit h-64'/>
+                <img src={result.person.artifacts.length > 0 ? result.person.artifacts[0].imageUrl : null} alt='More selfie responses' className='object-fit h-64'/>
                 <div className='bg-pma-light-orange w-full overflow-hidden'>
-                <h1 className='font-avenir text-sm md:text-m line-clamp-3 mt-5 mx-4'>{result.person[0].name?.en}</h1>
+                <h1 className='font-avenir text-sm md:text-m line-clamp-3 mt-5 mx-4'>{result.person.name?.en}</h1>
                 <button onClick = {() => {
-                  console.log('navigate to next page', result._id);
-                  navigate(`/laselfie/${result.person[0]._id}`, { state: { selfieData: selfieData } } ) 
+                  console.log('navigate to next page', result.person._id);
+                  navigate(`/laselfie/${result.person._id}`, { state: { selfieData: selfieData } } ) 
                   window.scrollTo(0,0);
                 }}>
                   <p className='font-avenir text-s text-gray-800 mx-5 mb-5 mt-2 hover:underline'>Read Story</p>
