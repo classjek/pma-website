@@ -84,9 +84,6 @@ const LaSelfie = () => {
         const formData = new FormData();
         formData.append('image', imageBlob);
 
-        // Only necessary for testing, faceMatch does not check the version
-        formData.append('version', '36');
-
         // Send the object to the backend
         const res = await axios.post('https://pma-backend.herokuapp.com/facematch', formData);
 
@@ -94,8 +91,6 @@ const LaSelfie = () => {
         const uniqueMatches = res.data.matches.filter((match, index, self) =>
             index === self.findIndex((m) => m.person._id === match.person._id)
         );
-
-        console.log('Unique matches:', uniqueMatches);
 
         setSelfieData(uniqueMatches);
     } catch (error) {

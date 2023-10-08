@@ -1,12 +1,7 @@
 import React from 'react'
-import StoryWidget from '../widgets/StoryWidget'
 import { BsFiletypePdf } from 'react-icons/bs'
-import { FiArrowRight } from "react-icons/fi";
-import { useNavigate } from 'react-router-dom';
 
 const Education = () => {
-
-  const navigate = useNavigate();
 
   return (
     <div>

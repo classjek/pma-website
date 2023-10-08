@@ -17,14 +17,12 @@ const IndividualPerson = () => {
         const foundItem = selfieData.find(item => item.person._id === id);
         setDisplayPerson(foundItem.person);
         setDisplayArtifacts(foundItem.person.artifacts);
-        console.log('recieved data at individual', foundItem.person);
       } 
       // if selfie data doesn't exist, make API call 
       else { 
         async function fetchPerson(){
           try {
             const response = await axios.post(`https://pma-backend.herokuapp.com/person?id=${id}`);
-            console.log("response ig", response.data);
             setDisplayPerson(response.data[0]);
             setDisplayArtifacts(response.data[0].artifacts);
           } catch (error){
@@ -53,7 +51,7 @@ const IndividualPerson = () => {
                 <p className='font-avenir xs:text-md md:text-l pb-5 pt-2 px-48'>{displayArtifacts[0].caption?.en}</p>
             </div>
             <div className='mx-16 mb-8'>
-                <p className='font-avenir text-s text-center pt-8 pb-4 px-10 md:px-32'>{displayPerson.description?.en}</p>
+                <p className='font-avenir text-s text-center pt-8 pb-6 px-10 md:px-32'>{displayPerson.description?.en}</p>
                 { selfieData && 
                 <div>
                 <h1 className='font-avenir font-bold'>OTHER MATCHES</h1>
