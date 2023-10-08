@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import axios from 'axios';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 const IndividualPlace = () => {
 
@@ -11,6 +15,16 @@ const IndividualPlace = () => {
     const [selectedArtifact, setSelectedArtifact] = useState(null);
     const [place, setPlace] = useState(null);
     const { id } = useParams();
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+    };
 
     useEffect(()=> {
         // if data was passed from previous page
@@ -38,6 +52,28 @@ const IndividualPlace = () => {
         setSelectedArtifact(artifact);
         setShowPopup(true);
     }
+    
+        function SampleNextArrow(props) {
+            const { className, style, onClick } = props;
+            return (
+                <div
+                    className={className}
+                    style={{ ...style, display: "block", background: "gray" }}
+                    onClick={onClick}
+                />
+            );
+        }
+    
+        function SamplePrevArrow(props) {
+            const { className, style, onClick } = props;
+            return (
+                <div
+                    className={className}
+                    style={{ ...style, display: "block", background: "gray" }}
+                    onClick={onClick}
+                />
+            );
+        }
 
   return (
     <div>
@@ -50,8 +86,26 @@ const IndividualPlace = () => {
                         <img src={place.artifacts[0].imageUrl} alt={place.artifacts[0].title?.en} onClick={()=> handleArtifactClick(place.artifacts[0])} className='h-96 md:h-124 p-5 pt-10'/>
                         <h1 className='font-canela xs:text-3xl md:text-4xl pb-5'>{place.name?.en}</h1>
                     </div>
-                    
+                    <Slider {...settings}>
+                        {place.artifacts.map((artifact, index) => (
+                            <div key={index}>
+                                <img src={artifact.imageUrl} alt={artifact.title?.en} className="w-full h-64 object-cover" />
+                            </div>
+                        ))}
+                    </Slider>
                     {/* Display the next 3 artifacts if they exist*/}
+                    <div className="flex overflow-x-auto space-x-4 px-2">
+                        {place.artifacts.slice(1).map((artifact, index) => (
+                        <div key={index} className="flex-none w-1/4 h-64 px-2 overflow-hidden">
+                            <img
+                                src={artifact.imageUrl}
+                                alt={artifact.title?.en}
+                                title={artifact.caption?.en}
+                                className='w-full h-full object-cover object-center'
+                            />
+                        </div>
+                        ))}
+                    </div>
                     {place.artifacts.length > 1 && (
                         <div className='flex justify-around align-center space-x-4 h-64 pt-5 px-20'>
                             {place.artifacts.slice(1, 4).map((artifact, index) => (
