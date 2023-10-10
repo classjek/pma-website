@@ -57,21 +57,46 @@ const IndividualPlace = () => {
             const { className, style, onClick } = props;
             return (
                 <div
-                    className={className}
-                    style={{ ...style, display: "block", background: "gray" }}
+                    className={`${className} bg-gray-600 p-2 rounded-full`}
+                    style={{
+                        ...props.style,
+                        display: "block",
+                        width: "40px",
+                        height: "40px",
+                        right: "10px", // Adjust position
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        zIndex: 1
+                    }}
                     onClick={onClick}
-                />
+                >
+                <svg className="w-4 h-4 mx-auto" viewBox="0 0 256 512">
+                    <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>
+                </svg>
+        </div>
             );
         }
     
         function SamplePrevArrow(props) {
             const { className, style, onClick } = props;
             return (
-                <div
-                    className={className}
-                    style={{ ...style, display: "block", background: "gray" }}
+                <div className={`${className} bg-gray-600 p-2 rounded-full`}
+                    style={{
+                        ...props.style,
+                        display: "block",
+                        width: "40px",
+                        height: "40px",
+                        left: "10px", // Adjust position
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        zIndex: 1
+                    }}
                     onClick={onClick}
-                />
+                >
+                <svg className="w-4 h-4 mx-auto" viewBox="0 0 256 512">
+                    <path d="M31.7 239L167.7 103c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L68.7 256l155.6 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0L31.7 273c-9.4-9.4-9.4-24.6 0-34z"/>
+                </svg>
+            </div>
             );
         }
 
@@ -82,46 +107,19 @@ const IndividualPlace = () => {
             <div>
             {place ? (
                 <div className='flex flex-col'>
-                    <div className='bg-pma-green flex flex-col items-center text-white'>
+                    <div className='bg-pma-green flex flex-col items-center text-white mb-4'>
                         <img src={place.artifacts[0].imageUrl} alt={place.artifacts[0].title?.en} onClick={()=> handleArtifactClick(place.artifacts[0])} className='h-96 md:h-124 p-5 pt-10'/>
                         <h1 className='font-canela xs:text-3xl md:text-4xl pb-5'>{place.name?.en}</h1>
                     </div>
-                    <Slider {...settings}>
-                        {place.artifacts.map((artifact, index) => (
-                            <div key={index}>
-                                <img src={artifact.imageUrl} alt={artifact.title?.en} className="w-full h-64 object-cover" />
+                    <div className='px-24'>
+                    <Slider {...settings} className='px-32'>
+                        {place.artifacts.slice(1).map((artifact, index) => (
+                            <div key={index} onClick={()=> handleArtifactClick(artifact)}>
+                                <img src={artifact.imageUrl} alt={artifact.title?.en} className="w-full h-72 p-2 object-contain" />
                             </div>
                         ))}
                     </Slider>
-                    {/* Display the next 3 artifacts if they exist*/}
-                    <div className="flex overflow-x-auto space-x-4 px-2">
-                        {place.artifacts.slice(1).map((artifact, index) => (
-                        <div key={index} className="flex-none w-1/4 h-64 px-2 overflow-hidden">
-                            <img
-                                src={artifact.imageUrl}
-                                alt={artifact.title?.en}
-                                title={artifact.caption?.en}
-                                className='w-full h-full object-cover object-center'
-                            />
-                        </div>
-                        ))}
                     </div>
-                    {place.artifacts.length > 1 && (
-                        <div className='flex justify-around align-center space-x-4 h-64 pt-5 px-20'>
-                            {place.artifacts.slice(1, 4).map((artifact, index) => (
-                                <div key={index} className="relative" onClick={()=> handleArtifactClick(artifact)}>
-                                    <img 
-                                        src={artifact.imageUrl} 
-                                        alt={artifact.title?.en} 
-                                        title={artifact.caption?.en}  // Tooltip on hover for description
-                                        className='h-full w-full object-cover'
-                                    />
-                                </div>
-                    
-                            ))}
-                        </div>
-                    )}
-
                     {/* Popup to give more information about artifacts */}
                     {showPopup && (
                         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
@@ -137,23 +135,7 @@ const IndividualPlace = () => {
                             </div>
                         </div>
                     )}
-
-                    <p className='font-avenir text-s text-center pt-8 pb-4 px-10 md:px-32'>{place.description?.en}</p>
-                    {place.artifacts.length > 4 && (
-                        <div className='flex justify-around align-center space-x-4 h-64 pt-5 px-20 pb-12'>
-                            {place.artifacts.slice(4, 8).map((artifact, index) => (
-                                <div key={index} className="relative" onClick={()=> handleArtifactClick(artifact)}>
-                                    <img 
-                                        src={artifact.imageUrl} 
-                                        alt={artifact.title?.en} 
-                                        title={artifact.caption?.en}  // Tooltip on hover for description
-                                        className='h-full w-full object-cover'
-                                    />
-                                </div>
-                    
-                            ))}
-                        </div>
-                    )}
+                    <p className='font-avenir text-s text-center pb-4 px-10 md:px-32'>{place.description?.en}</p>
                 </div>
             ) : (
                 <p>Loading...</p>
